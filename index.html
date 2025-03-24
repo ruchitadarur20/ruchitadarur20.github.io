@@ -879,4 +879,76 @@
         <div class="container">
             <div class="social-links">
                 <a href="#" class="social-link">
-                    <svg width="18" height
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5807 20.2772 21.0497 21.7437 19.0074C23.2101 16.965 23.9993 14.5143 24 12C24 5.37 18.63 0 12 0Z" fill="white" />
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.5 6.75V17.25C22.5 18.0456 22.1839 18.8087 21.6213 19.3713C21.0587 19.9339 20.2956 20.25 19.5 20.25H4.5C3.70435 20.25 2.94129 19.9339 2.37868 19.3713C1.81607 18.8087 1.5 18.0456 1.5 17.25V6.75M22.5 6.75C22.5 5.95435 22.1839 5.19129 21.6213 4.62868C21.0587 4.06607 20.2956 3.75 19.5 3.75H4.5C3.70435 3.75 2.94129 4.06607 2.37868 4.62868C1.81607 5.19129 1.5 5.95435 1.5 6.75M22.5 6.75V6.9375C22.5 7.44995 22.3354 7.94745 22.0334 8.34984C21.7314 8.75222 21.309 9.03566 20.83 9.15375L13.33 11.4038C12.9626 11.4919 12.5824 11.5367 12.2 11.5367C11.8176 11.5367 11.4374 11.4919 11.07 11.4038L3.5 9.15375C3.02099 9.03566 2.59861 8.75222 2.29665 8.34984C1.99468 7.94745 1.83004 7.44995 1.83 6.9375V6.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.5 7.5C16.5 8.29565 16.1839 9.05871 15.6213 9.62132C15.0587 10.1839 14.2956 10.5 13.5 10.5C12.7044 10.5 11.9413 10.1839 11.3787 9.62132C10.8161 9.05871 10.5 8.29565 10.5 7.5C10.5 6.70435 10.8161 5.94129 11.3787 5.37868C11.9413 4.81607 12.7044 4.5 13.5 4.5C14.2956 4.5 15.0587 4.81607 15.6213 5.37868C16.1839 5.94129 16.5 6.70435 16.5 7.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.5 19.5V16.5C7.5 15.7044 7.81607 14.9413 8.37868 14.3787C8.94129 13.8161 9.70435 13.5 10.5 13.5H16.5C17.2956 13.5 18.0587 13.8161 18.6213 14.3787C19.1839 14.9413 19.5 15.7044 19.5 16.5V19.5M6 10.5H3V19.5H6V10.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2025 Ruchita Darur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create particles in the header
+        document.addEventListener("DOMContentLoaded", function() {
+            const particlesContainer = document.querySelector('.particles');
+            const numParticles = 20;
+            
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 10 + 5;
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                
+                // Set styles
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Form submission (demo only, would need backend)
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('This is a demo form. In a real portfolio, this would send your message.');
+                });
+            }
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
