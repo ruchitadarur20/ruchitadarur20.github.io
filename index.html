@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruchita Darur | Portfolio</title>
+  <!-- Make sure Font Awesome is loaded correctly -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -331,9 +332,11 @@
       .hero-title {
         font-size: 48px;
       }
+
       .about-grid {
         grid-template-columns: 1fr;
       }
+
       .social-links,
       .email-link {
         display: none;
@@ -342,6 +345,7 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <div class="container nav-container">
       <a href="#" class="logo">RD</a>
@@ -353,6 +357,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -367,6 +372,7 @@
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
@@ -393,6 +399,7 @@
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Some Things I've Built</h2>
@@ -418,14 +425,12 @@
               class="btn"
               style="margin-right: 10px;"
               target="_blank"
-              >Live Demo</a
-            >
+            >Live Demo</a>
             <a
               href="https://github.com/ruchitadaru20/KanbanToDoList"
               class="btn"
               target="_blank"
-              >GitHub</a
-            >
+            >GitHub</a>
           </div>
         </div>
 
@@ -487,6 +492,7 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <div class="contact">
@@ -501,19 +507,25 @@
     </div>
   </section>
 
-  <!-- Updated Social Links (Twitter removed, LinkedIn link updated) -->
+  <!-- Social Links (GitHub & LinkedIn) -->
   <div class="social-links">
     <a
       href="https://github.com/ruchitadaru20"
       class="social-link"
-      target="_blank">
+      target="_blank"
+    >
       <i class="fab fa-github"></i>
     </a>
- <a href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank">
-  <i class="fab fa-LinkedIn"></i>
-</a>
+    <a
+      href="https://www.linkedin.com/in/ruchita-darur-8594621a2/"
+      class="social-link"
+      target="_blank"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
   </div>
 
+  <!-- Email Link (fixed on the right) -->
   <div class="email-link">
     <a href="mailto:ruchitadarur@gmail.com">ruchitadarur@gmail.com</a>
   </div>
