@@ -2,25 +2,42 @@
 
 A modern portfolio website showcasing my projects and skills.
 
-## 💻 Tech Stack
+## 🛠️ Languages & Technologies
 
-- HTML5, CSS3
+### Frontend
+- HTML5
+- CSS3 (Custom styling, Animations)
+- JavaScript (ES6+)
+
+### Frameworks & Libraries
+- React.js
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+### Tools & Platforms
+- Git/GitHub
+- VS Code
+- Docker
+- Kubernetes
+- Jenkins
+- Google Cloud Platform (GCP)
+
+### Additional Skills
 - Responsive Design
-- Font Awesome Icons
-- Google Fonts
+- UI/UX Design
+- RESTful APIs
+- Database Management (MySQL, MongoDB)
+- Machine Learning
+- IoT Development
 
-## 📱 Features
-
-- Responsive layout for all devices
-- Dark theme with modern UI
-- Interactive project cards
-- Smooth animations
-- Contact form and social links
 
 ## 🔗 Connect
 
 - GitHub: [github.com/ruchitadarur20](https://github.com/ruchitadarur20)
-- Email: [ruchitadarur@gmail.com](ruchitadarur@gmail.com)
+- Email: [ruchitadarur@gmail.com](mailto:ruchitadarur@gmail.com)
 - Portfolio: [ruchitadarur.com](https://ruchitadarur20.github.io)
+
 ---
 Made with ❤️ by Ruchita Darur
