@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruchita Darur | Portfolio</title>
-  <!-- Make sure Font Awesome is loaded correctly -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -133,38 +132,6 @@
       height: 1px;
       background-color: var(--text-secondary);
       opacity: 0.3;
-    }
-
-    /* About Section */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-
-    .skills-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      list-style: none;
-    }
-
-    .skills-list li {
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .skills-list li::before {
-      content: "▹";
-      color: var(--accent);
     }
 
     /* Projects Section */
@@ -333,10 +300,6 @@
         font-size: 48px;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
       .social-links,
       .email-link {
         display: none;
@@ -393,7 +356,6 @@
           <li>Machine Learning</li>
           <li>SQL</li>
           <li>MongoDB</li>
-          <!-- New items added below -->
           <li>AWS EC2</li>
           <li>GCD</li>
           <li>Jenkins</li>
@@ -410,68 +372,13 @@
     <div class="container">
       <h2 class="section-title">Some Things I've Built</h2>
       <div class="projects-grid">
+        <!-- Blood Bank Management System -->
         <div class="project-card">
-          <h3 class="project-title">Kanban Task Management Board</h3>
+          <h3 class="project-title">Blood Bank Management System</h3>
           <p class="project-description">
-            A modern, intuitive Kanban board application built with Next.js and React,
-            featuring drag-and-drop functionality, task prioritization, and deadline management.
-            The application provides a clean interface for organizing tasks across different
-            stages of completion.
+            A centralized web-based system enhancing blood donation operations with real-time inventory tracking.
           </p>
-          <div class="project-tech">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">Tailwind CSS</span>
-            <span class="tech-tag">Framer Motion</span>
-          </div>
-          <div class="project-links" style="margin-top: 20px;">
-            <a
-              href="https://kanban-to-do-list-two.vercel.app/"
-              class="btn"
-              style="margin-right: 10px;"
-              target="_blank"
-            >Live Demo</a>
-            <a
-              href="https://github.com/ruchitadaru20/KanbanToDoList"
-              class="btn"
-              target="_blank"
-            >GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Automated Weed Detection</h3>
-          <p class="project-description">
-            An IoT-based agricultural solution using machine learning for real-time weed detection
-            and autonomous cutting, enhancing efficiency and minimizing herbicide use.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">Machine Learning</span>
-            <span class="tech-tag">IoT</span>
-            <span class="tech-tag">Python</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Space Shuttle Simulation</h3>
-          <p class="project-description">
-            A 3D space shuttle simulation featuring detailed animations for launch,
-            flight, and landing with interactive controls.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">OpenGL</span>
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">3D Graphics</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Blood Bank Management</h3>
-          <p class="project-description">
-            A centralized web-based system enhancing blood donation operations
-            with real-time inventory tracking.
-          </p>
+          <p><strong>Duration:</strong> Nov 2021 - Jan 2022</p>
           <div class="project-tech">
             <span class="tech-tag">PHP</span>
             <span class="tech-tag">MySQL</span>
@@ -479,19 +386,49 @@
           </div>
         </div>
 
+        <!-- Space Shuttle -->
         <div class="project-card">
-          <h3 class="project-title">Student Survey Form</h3>
+          <h3 class="project-title">Space Shuttle Simulation</h3>
           <p class="project-description">
-            A containerized web application deployed on Google Kubernetes Engine (GKE) with
-            automated CI/CD pipeline using Jenkins. Features include Docker containerization,
-            Kubernetes orchestration, and automated deployments.
+            A 3D space shuttle simulation featuring detailed animations for launch,
+            flight, and landing with interactive controls.
           </p>
+          <p><strong>Duration:</strong> May 2022 - Jul 2022</p>
           <div class="project-tech">
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Kubernetes</span>
-            <span class="tech-tag">Jenkins</span>
-            <span class="tech-tag">GCP</span>
-            <span class="tech-tag">Java</span>
+            <span class="tech-tag">OpenGL</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">3D Graphics</span>
+          </div>
+        </div>
+
+        <!-- Automatic Weed Detection -->
+        <div class="project-card">
+          <h3 class="project-title">Automatic Weed Detection and Cutting Using Machine Learning Applications and IoT</h3>
+          <p class="project-description">
+            An IoT-based agricultural solution using machine learning for real-time weed detection
+            and autonomous cutting, enhancing efficiency and minimizing herbicide use.
+          </p>
+          <p><strong>Duration:</strong> Oct 2022 - May 2023</p>
+          <div class="project-tech">
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">IoT</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </div>
+
+        <!-- Attendance App -->
+        <div class="project-card">
+          <h3 class="project-title">Attendance App</h3>
+          <p class="project-description">
+            Designed an intuitive mobile application for seamless attendance tracking, reducing reliance on manual sign-in processes.
+            Enhanced accuracy by eliminating manual input errors and incorporating objective verification mechanisms.
+            Synchronized the app with existing classroom management systems for smooth data integration.
+          </p>
+          <p><strong>Duration:</strong> Feb 2022 - May 2022</p>
+          <div class="project-tech">
+            <span class="tech-tag">Mobile App Development</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Firebase</span>
           </div>
         </div>
       </div>
