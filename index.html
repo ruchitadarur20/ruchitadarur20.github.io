@@ -548,12 +548,15 @@
       --stroke: rgba(255,255,255,.12);
       --text: rgba(245,247,255,.92);
       --muted: rgba(245,247,255,.62);
+      --muted2: rgba(245,247,255,.45);
 
       --a1:#35d6ff;
       --a2:#8a5cff;
 
       --shadow: 0 28px 90px rgba(0,0,0,.55);
       --radius: 18px;
+
+      --max: 1200px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -563,6 +566,7 @@
       background: var(--bg);
       color: var(--text);
       overflow-x:hidden;
+      line-height: 1.6;
     }
 
     /* ===== Background (glow + vignette) ===== */
@@ -581,7 +585,7 @@
     }
 
     .container{
-      max-width: 1200px;
+      max-width: var(--max);
       margin: 0 auto;
       padding: 0 22px;
     }
@@ -593,12 +597,7 @@
       left: 0; right: 0;
       z-index: 50;
     }
-
-    .nav-wrap{
-      display:flex;
-      justify-content:center;
-    }
-
+    .nav-wrap{ display:flex; justify-content:center; }
     .nav-pill{
       width:min(980px, calc(100% - 24px));
       display:flex;
@@ -613,10 +612,10 @@
       border-radius: 999px;
       box-shadow: 0 18px 70px rgba(0,0,0,.35);
     }
-
     .brand{
       display:flex; align-items:center; gap: 12px;
       padding-left: 6px;
+      min-width: 210px;
     }
     .brand-badge{
       width: 44px; height: 44px;
@@ -624,6 +623,7 @@
       display:grid; place-items:center;
       font-weight: 900;
       letter-spacing:-.02em;
+      color: var(--text);
 
       background: linear-gradient(135deg, rgba(53,214,255,.20), rgba(138,92,255,.18));
       border: 1px solid rgba(255,255,255,.10);
@@ -642,6 +642,7 @@
       font-size: 14px;
       font-weight: 800;
       letter-spacing:-.01em;
+      line-height: 1.2;
     }
 
     .nav-links{
@@ -653,11 +654,12 @@
       border-radius: 999px;
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.06);
+      max-width: 100%;
     }
     .nav-links a{
       text-decoration:none;
       color: rgba(245,247,255,.70);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13px;
       padding: 10px 14px;
       border-radius: 999px;
@@ -676,24 +678,24 @@
       box-shadow: 0 16px 45px rgba(53,214,255,.12);
     }
 
-    /* ===== Hero layout ===== */
-    .hero{
+    /* ===== Hero ===== */
+    main.hero{
       min-height: 100vh;
       display:flex;
       align-items:center;
       padding-top: 130px;
-      padding-bottom: 60px;
+      padding-bottom: 70px;
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
       align-items:center;
     }
 
     .kicker{
       color: rgba(245,247,255,.65);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 12px;
       letter-spacing: .28em;
       text-transform: uppercase;
@@ -708,9 +710,9 @@
     }
 
     .role{
-      color: rgba(53,214,255,.85);
-      font-weight: 800;
-      letter-spacing: .28em;
+      color: rgba(53,214,255,.88);
+      font-weight: 900;
+      letter-spacing: .24em;
       text-transform: uppercase;
       font-size: 12px;
       margin-bottom: 10px;
@@ -731,16 +733,21 @@
       display:inline-block;
     }
 
+    .lead{
+      color: rgba(245,247,255,.72);
+      max-width: 720px;
+      font-size: 15px;
+    }
     .quote{
       margin-top: 12px;
       color: rgba(245,247,255,.70);
       font-style: italic;
-      font-size: 16px;
-      max-width: 680px;
+      font-size: 15px;
+      max-width: 720px;
     }
 
     .cta-row{
-      margin-top: 26px;
+      margin-top: 22px;
       display:flex;
       gap: 12px;
       flex-wrap:wrap;
@@ -754,16 +761,17 @@
       padding: 13px 16px;
       border-radius: 14px;
       text-decoration:none;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13px;
       letter-spacing:.02em;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border .18s ease;
       box-shadow: 0 18px 70px rgba(0,0,0,.25);
+      user-select:none;
     }
-    .btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,.08); }
+    .btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
     .btn.primary{
       background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
       border: 1px solid rgba(255,255,255,.14);
@@ -777,62 +785,71 @@
       background: rgba(255,255,255,.05);
     }
 
-    /* ===== Right image card ===== */
-    .portrait-card{
-      position:relative;
+    /* ===== Right-side “glass info panel” (no image) ===== */
+    .info-panel{
       border-radius: 26px;
-      padding: 14px;
+      padding: 18px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position: relative;
     }
-    .portrait-card::before{
+    .info-panel::before{
       content:"";
       position:absolute; inset:-2px;
       background:
         radial-gradient(700px 260px at 20% 0%, rgba(53,214,255,.22), transparent 55%),
         radial-gradient(700px 260px at 85% 10%, rgba(138,92,255,.18), transparent 55%);
-      opacity: .70;
+      opacity: .65;
       pointer-events:none;
     }
-    .portrait{
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 20px;
-      object-fit: cover;
-      border: 1px solid rgba(255,255,255,.10);
-      position:relative;
-      z-index:1;
-      filter: contrast(1.05) saturate(1.05);
+    .info-panel > *{ position: relative; z-index: 1; }
+    .info-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 12px;
     }
-
-    /* Floating ring accent */
-    .ring{
-      position:absolute;
-      left: -26px;
-      top: 45%;
-      width: 56px;
-      height: 56px;
+    .pill{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 10px 12px;
       border-radius: 999px;
-      border: 2px solid rgba(53,214,255,.65);
-      box-shadow: 0 0 0 10px rgba(53,214,255,.08);
-      background: rgba(5,11,24,.55);
-      z-index: 2;
-      animation: float 3.2s ease-in-out infinite;
-    }
-    .ring::after{
-      content:"";
-      position:absolute;
-      inset: 16px;
-      border-radius:999px;
-      background: rgba(53,214,255,.25);
+      background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.10);
+      color: rgba(245,247,255,.72);
+      white-space:nowrap;
     }
-    @keyframes float{
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-10px); }
+    .stat{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 12px;
     }
+    .stat b{ display:block; font-weight: 900; letter-spacing:-.01em; }
+    .stat span{ display:block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+
+    .mini-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .mini-links a{
+      color: rgba(245,247,255,.78);
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      transition: .18s ease;
+    }
+    .mini-links a:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.16); }
 
     /* Scroll down arrow */
     .scroll-down{
@@ -848,22 +865,20 @@
     }
     .scroll-down:hover{ color: rgba(53,214,255,.85); transform: translateX(-50%) translateY(2px); }
 
-    /* ===== Sections base ===== */
-    section{
-      padding: 90px 0;
-    }
+    /* ===== Sections ===== */
+    section{ padding: 90px 0; }
     .section-title{
       font-size: 24px;
       font-weight: 900;
       letter-spacing: -.02em;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .section-sub{
       color: var(--muted);
-      max-width: 900px;
+      max-width: 980px;
     }
 
-    /* Simple project grid */
+    /* Cards grid */
     .cards{
       margin-top: 22px;
       display:grid;
@@ -881,25 +896,87 @@
       position:relative;
       overflow:hidden;
     }
-    .card:hover{ transform: translateY(-6px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
-    .card h3{ font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+    .card:hover{
+      transform: translateY(-6px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.16);
+    }
+    .card h3{ font-size: 16px; font-weight: 900; margin-bottom: 8px; letter-spacing:-.01em; }
     .card p{ color: var(--muted); font-size: 13px; }
+    .meta{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      margin: 10px 0 0;
+      color: var(--muted2);
+      font-size: 12px;
+      font-weight: 800;
+    }
     .tags{ margin-top: 12px; display:flex; flex-wrap:wrap; gap: 8px; }
     .tag{
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       padding: 8px 10px;
       border-radius: 999px;
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.10);
-      color: rgba(245,247,255,.80);
+      color: rgba(245,247,255,.82);
+      white-space: nowrap;
+    }
+    .links{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .links a{
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 13px;
+      color: rgba(53,214,255,.95);
+    }
+    .links span{ color: rgba(255,255,255,.25); }
+
+    /* Contact panel */
+    .contact-panel{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      text-align:center;
+    }
+    .contact-panel::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(800px 260px at 20% 0%, rgba(53,214,255,.18), transparent 60%),
+        radial-gradient(800px 260px at 85% 10%, rgba(138,92,255,.16), transparent 60%);
+      opacity: .70;
+      pointer-events:none;
+    }
+    .contact-panel > *{ position: relative; z-index: 1; }
+    .contact-kicker{
+      color: rgba(53,214,255,.88);
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    footer{
+      padding: 28px 0 40px;
+      color: rgba(245,247,255,.45);
+      font-size: 13px;
+      text-align:center;
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; gap: 26px; }
-      .portrait-card{ max-width: 520px; margin: 0 auto; }
-      .ring{ left: 14px; top: 24px; }
+      .hero-grid{ grid-template-columns: 1fr; gap: 18px; }
+      .info-panel{ max-width: 720px; margin: 0 auto; }
     }
     @media (max-width: 760px){
       header{ top: 10px; }
@@ -908,6 +985,7 @@
       .nav-links{ width: 100%; justify-content: flex-start; overflow:auto; scrollbar-width:none; }
       .nav-links::-webkit-scrollbar{ display:none; }
       .card{ grid-column: span 12; }
+      section{ padding: 76px 0; }
     }
   </style>
 </head>
@@ -933,6 +1011,7 @@
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -946,19 +1025,20 @@
         <div>
           <div class="kicker">
             <span class="line"></span>
-            <span>Digital Systems • Cloud • Web</span>
+            <span>Digital Systems • Cloud • Scalable Backend</span>
           </div>
 
-          <div class="role">FULL-STACK / BACKEND ENGINEER</div>
+          <div class="role">SOFTWARE ENGINEER • BACKEND • CLOUD SYSTEMS</div>
 
           <div class="name">
             Ruchita<br/>
             <span class="last">Darur</span>
           </div>
 
-          <p style="color: rgba(245,247,255,.70); max-width: 680px;">
-            Computer Science graduate student at George Mason University, building modern web apps,
-            scalable backend systems, and cloud deployments.
+          <p class="lead">
+            Software Engineer and M.S. Computer Science candidate with experience in backend development,
+            cloud-based systems, and data-driven applications. I build scalable REST APIs, work with relational
+            databases, and deploy production services using AWS and Docker.
           </p>
 
           <p class="quote">
@@ -966,9 +1046,9 @@
           </p>
 
           <div class="cta-row">
-            <a class="btn primary" href="#about">
-              <span class="ic"><i class="fa-solid fa-user"></i></span>
-              Explore Me
+            <a class="btn primary" href="#projects">
+              <span class="ic"><i class="fa-solid fa-diagram-project"></i></span>
+              Explore Projects
             </a>
 
             <a class="btn" href="mailto:ruchitadarur@gmail.com">
@@ -981,9 +1061,14 @@
               LinkedIn
             </a>
 
-            <!-- OPTIONAL: Resume button -->
+            <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
+              <span class="ic"><i class="fa-brands fa-github"></i></span>
+              GitHub
+            </a>
+
+            <!-- OPTIONAL: If you upload resume.pdf to your repo root, uncomment this -->
             <!--
-            <a class="btn" href="YOUR_RESUME_LINK" target="_blank" rel="noopener">
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
               <span class="ic"><i class="fa-solid fa-file-arrow-down"></i></span>
               Resume
             </a>
@@ -991,14 +1076,34 @@
           </div>
         </div>
 
-        <div class="portrait-card">
-          <div class="ring" aria-hidden="true"></div>
-          <img
-            class="portrait"
-            src="YOUR_IMAGE.jpg"
-            alt="Ruchita Darur portrait"
-          />
-        </div>
+        <!-- No picture: premium “what I do” panel -->
+        <aside class="info-panel" aria-label="Profile summary panel">
+          <div class="info-title">
+            <div class="pill"><i class="fa-solid fa-sparkles"></i> Key Highlights</div>
+            <div class="pill"><i class="fa-solid fa-location-dot"></i> Fairfax, VA</div>
+          </div>
+
+          <div class="stat">
+            <b>What I build</b>
+            <span>Production-ready backend platforms, cloud deployments, and data-driven systems.</span>
+          </div>
+
+          <div class="stat">
+            <b>Core strengths</b>
+            <span>REST APIs • Databases • Distributed systems fundamentals • Debugging & performance.</span>
+          </div>
+
+          <div class="stat" style="margin-bottom:0;">
+            <b>Open to roles</b>
+            <span>Backend / Full-Stack Software Engineer (Full-time priority; internship backup).</span>
+          </div>
+
+          <div class="mini-links" aria-label="Quick links">
+            <a href="mailto:ruchitadarur@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <a href="tel:+15715876051"><i class="fa-solid fa-phone"></i> Call</a>
+            <a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Site</a>
+          </div>
+        </aside>
       </div>
 
       <a class="scroll-down" href="#about" aria-label="Scroll down">
@@ -1012,9 +1117,33 @@
     <div class="container">
       <div class="section-title">About</div>
       <p class="section-sub">
-        I enjoy building full-stack products end-to-end — clean UI, solid APIs, and reliable deployments.
-        I care about maintainability, performance, and shipping with confidence.
+        Designed and developed a modern, interactive portfolio reflecting my journey as a Technology Architect & Full-Stack Developer.
+        It showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.
       </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>💥 Key Highlights</h3>
+          <p>Clean and futuristic UI with smooth animations, fully responsive design, and interactive sections for skills, projects, and achievements.</p>
+          <div class="tags">
+            <span class="tag">Futuristic UI</span>
+            <span class="tag">Responsive</span>
+            <span class="tag">Interactive</span>
+            <span class="tag">Smooth Animations</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🔧 Tech Stack Used</h3>
+          <p>Tailwind CSS for scalable styling, GSAP for high-performance animations, JavaScript & React for dynamic components.</p>
+          <div class="tags">
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">GSAP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1026,31 +1155,34 @@
 
       <div class="cards">
         <div class="card">
-          <h3>Frontend</h3>
-          <p>React, Next.js, TypeScript, HTML/CSS</p>
+          <h3>Languages</h3>
+          <p>Python, SQL, C++</p>
           <div class="tags">
-            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">C++</span>
           </div>
         </div>
+
         <div class="card">
-          <h3>Backend</h3>
-          <p>Node.js, Python, REST APIs, SQL</p>
+          <h3>Backend & Systems</h3>
+          <p>REST APIs, Microservices, Distributed Systems, Asynchronous Processing, System Design</p>
           <div class="tags">
-            <span class="tag">Node</span><span class="tag">Python</span><span class="tag">REST</span><span class="tag">SQL</span>
+            <span class="tag">REST</span><span class="tag">Microservices</span><span class="tag">Distributed</span><span class="tag">Async</span><span class="tag">System Design</span>
           </div>
         </div>
+
         <div class="card">
-          <h3>Cloud / DevOps</h3>
-          <p>Docker, Kubernetes, Jenkins, AWS, GCP</p>
+          <h3>Databases</h3>
+          <p>PostgreSQL, MySQL, Data Modeling, SQL Optimization</p>
           <div class="tags">
-            <span class="tag">Docker</span><span class="tag">K8s</span><span class="tag">Jenkins</span><span class="tag">AWS</span><span class="tag">GCP</span>
+            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">Optimization</span>
           </div>
         </div>
+
         <div class="card">
-          <h3>Data / ML / IoT</h3>
-          <p>MongoDB, ML basics, IoT prototypes</p>
+          <h3>Cloud & DevOps</h3>
+          <p>AWS (EC2, RDS, S3), Docker, CI/CD, Linux, Jenkins</p>
           <div class="tags">
-            <span class="tag">MongoDB</span><span class="tag">ML</span><span class="tag">IoT</span>
+            <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Linux</span><span class="tag">Jenkins</span>
           </div>
         </div>
       </div>
@@ -1061,27 +1193,169 @@
   <section id="projects">
     <div class="container">
       <div class="section-title">Projects</div>
-      <p class="section-sub">Selected work (replace/edit as needed):</p>
+      <p class="section-sub">All projects (including earlier ones) + your latest resume projects:</p>
 
       <div class="cards">
+        <!-- Portfolio Project -->
         <div class="card">
-          <h3>Kanban Task Management Board</h3>
-          <p>Drag-and-drop Kanban board with prioritization + deadlines.</p>
-          <div class="tags">
-            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TS</span><span class="tag">Tailwind</span>
-          </div>
-          <p style="margin-top:12px; font-size:13px;">
-            <a style="color:var(--a1); font-weight:800; text-decoration:none;" href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
-            <span style="color:rgba(255,255,255,.25)"> • </span>
-            <a style="color:var(--a1); font-weight:800; text-decoration:none;" href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
+          <h3>Personal Portfolio – Technology Architect & Full-Stack Developer</h3>
+          <p>
+            Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements,
+            and passion for building scalable, user-focused digital solutions.
           </p>
+
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>Clean and futuristic UI with smooth animations</li>
+            <li>Fully responsive design across all devices</li>
+            <li>Interactive sections for skills, projects, and achievements</li>
+            <li>Professional contact section for seamless collaboration</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">GSAP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">UI/UX</span>
+          </div>
+          <div class="links">
+            <a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+
+        <!-- New resume projects -->
+        <div class="card">
+          <h3>Scalable Cloud-Based Student Feedback System</h3>
+          <p>
+            Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs
+            to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.
+          </p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Jan 2025 – May 2025</span></div>
+          <div class="tags">
+            <span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS EC2</span><span class="tag">Docker</span>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Student Survey Form (CI/CD + GKE)</h3>
-          <p>Containerized deployment on GKE with Jenkins pipeline.</p>
+          <h3>Academic Data Analytics System</h3>
+          <p>
+            Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards
+            improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.
+          </p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
           <div class="tags">
-            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span>
+            <span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span>
+          </div>
+        </div>
+
+        <!-- Earlier projects (DO NOT REMOVE) -->
+        <div class="card">
+          <h3>Student Survey Form</h3>
+          <p>
+            Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins.
+            Includes Docker containerization, Kubernetes orchestration, and automated deployments.
+          </p>
+          <div class="meta"><span>Jan 2024 – Present</span></div>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Kanban Task Management Board</h3>
+          <p>
+            Modern Kanban board built with Next.js and React featuring drag-and-drop, task prioritization, and deadline management.
+          </p>
+          <div class="meta"><span>Oct 2024 – Dec 2024</span></div>
+          <div class="tags">
+            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span>
+          </div>
+          <div class="links">
+            <a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
+            <span>•</span>
+            <a href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Blood Bank Management System</h3>
+          <p>
+            Centralized web-based system enhancing blood donation operations with real-time inventory tracking.
+          </p>
+          <div class="meta"><span>Nov 2021 – Jan 2022</span></div>
+          <div class="tags">
+            <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Space Shuttle Simulation</h3>
+          <p>
+            3D space shuttle simulation featuring detailed animations for launch, flight, and landing with interactive controls.
+          </p>
+          <div class="meta"><span>May 2022 – Jul 2022</span></div>
+          <div class="tags">
+            <span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">3D Graphics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Automatic Weed Detection and Cutting (ML + IoT)</h3>
+          <p>
+            IoT-based agricultural solution using machine learning for real-time weed detection and autonomous cutting,
+            enhancing efficiency and minimizing herbicide use.
+          </p>
+          <div class="meta"><span>Oct 2022 – May 2023</span></div>
+          <div class="tags">
+            <span class="tag">Machine Learning</span><span class="tag">IoT</span><span class="tag">Python</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Attendance App</h3>
+          <p>
+            Designed a mobile app for attendance tracking, reducing manual errors and improving classroom workflow integration.
+          </p>
+          <div class="meta"><span>Feb 2022 – May 2022</span></div>
+          <div class="tags">
+            <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Mobile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-title">Experience</div>
+      <p class="section-sub">Industry + research experience focused on scalable systems, evaluation, and backend engineering.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>GenAI Systems Benchmarking & Technology Evaluation</h3>
+          <p>
+            Conduct research-driven evaluation of frontier AI systems (GPT, Gemini, Grok) for real-world deployment readiness.
+            Designed benchmarking methods measuring latency, TTFT, reasoning consistency, and reliability under stress conditions,
+            and translated experimental insights into technology recommendations.
+          </p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2025 – Present</span></div>
+          <div class="tags">
+            <span class="tag">Benchmarking</span><span class="tag">Metrics</span><span class="tag">Reliability</span><span class="tag">Evaluation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Backend Developer – Artallur Technologies</h3>
+          <p>
+            Developed backend services and REST APIs for internal and client-facing applications. Designed and optimized PostgreSQL
+            schemas and queries, deployed and tested on AWS infrastructure, and contributed to debugging and performance improvements
+            using Git-based workflows and clear technical communication.
+          </p>
+          <div class="meta"><span>Aug 2022 – Oct 2022</span></div>
+          <div class="tags">
+            <span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">Backend</span><span class="tag">Debugging</span>
           </div>
         </div>
       </div>
@@ -1091,24 +1365,40 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="section-title">Contact</div>
-      <p class="section-sub">
-        Want to collaborate or discuss opportunities? Reach out anytime.
-      </p>
-      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn primary" href="mailto:ruchitadarur@gmail.com">
-          <span class="ic"><i class="fa-solid fa-paper-plane"></i></span>
-          Say Hello
-        </a>
-        <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
-          <span class="ic"><i class="fa-brands fa-github"></i></span>
-          GitHub
-        </a>
+      <div class="contact-panel">
+        <div class="contact-kicker">What’s Next?</div>
+        <div class="section-title" style="margin-bottom:8px;">Get In Touch</div>
+        <p class="section-sub" style="margin: 0 auto 16px; max-width: 860px;">
+          I’m currently looking for new opportunities. Whether you have a question or want to collaborate,
+          I’ll try my best to get back to you quickly.
+        </p>
+
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+          <a class="btn primary" href="mailto:ruchitadarur@gmail.com">
+            <span class="ic"><i class="fa-solid fa-paper-plane"></i></span>
+            Say Hello
+          </a>
+          <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
+            <span class="ic"><i class="fa-brands fa-github"></i></span>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
+            <span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>
+            LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
+  <footer>
+    © <span id="y"></span> Ruchita Darur • Built with intention.
+  </footer>
+
   <script>
+    // footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
     // Active nav link based on scroll
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
     const ids = navLinks.map(a => a.getAttribute("href")).filter(h => h && h.startsWith("#"));
@@ -1118,7 +1408,7 @@
       let current = "#home";
       for (const sec of sections) {
         const r = sec.getBoundingClientRect();
-        if (r.top <= 140 && r.bottom >= 140) current = "#" + sec.id;
+        if (r.top <= 160 && r.bottom >= 160) current = "#" + sec.id;
       }
       navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === current));
     };
@@ -1128,3 +1418,4 @@
   </script>
 </body>
 </html>
+
