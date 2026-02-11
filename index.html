@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -308,7 +309,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  
   <nav>
     <div class="container nav-container">
       <a href="#" class="logo">RD</a>
@@ -320,7 +321,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -335,7 +336,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  
   <section id="about">
   <div class="container">
     <h2 class="section-title">About Me</h2>
@@ -367,7 +368,7 @@
   </div>
 </section>
 
-  <!-- Projects Section -->
+
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Some Things I've Built</h2>
@@ -419,7 +420,7 @@
             >GitHub</a>
           </div>
         </div>
-        <!-- Blood Bank Management System -->
+     
         <div class="project-card">
           <h3 class="project-title">Blood Bank Management System</h3>
           <p class="project-description">
@@ -433,7 +434,7 @@
           </div>
         </div>
 
-        <!-- Space Shuttle -->
+     
         <div class="project-card">
           <h3 class="project-title">Space Shuttle Simulation</h3>
           <p class="project-description">
@@ -448,7 +449,7 @@
           </div>
         </div>
 
-        <!-- Automatic Weed Detection -->
+        
         <div class="project-card">
           <h3 class="project-title">Automatic Weed Detection and Cutting Using Machine Learning Applications and IoT</h3>
           <p class="project-description">
@@ -463,7 +464,7 @@
           </div>
         </div>
 
-        <!-- Attendance App -->
+    
         <div class="project-card">
           <h3 class="project-title">Attendance App</h3>
           <p class="project-description">
@@ -482,7 +483,7 @@
     </div>
   </section>
   
-  <!-- Contact Section -->
+ 
   <section id="contact">
     <div class="container">
       <div class="contact">
@@ -497,7 +498,7 @@
     </div>
   </section>
 
-  <!-- Social Links (GitHub & LinkedIn) -->
+  
   <div class="social-links">
     <a
       href="https://github.com/ruchitadarur20"
@@ -515,9 +516,857 @@
     </a>
   </div>
 
-  <!-- Email Link (fixed on the right) -->
+ 
   <div class="email-link">
     <a href="mailto:ruchitadarur@gmail.com">ruchitadarur@gmail.com</a>
   </div>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruchita Darur | Portfolio</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: rgba(245, 247, 255, 0.92);
+      --muted: rgba(245, 247, 255, 0.62);
+      --muted-2: rgba(245, 247, 255, 0.45);
+      --accent: #7cddff;
+      --accent-2: #b36bff;
+      --shadow: 0 24px 80px rgba(0,0,0,0.55);
+      --nav-height: 78px;
+      --radius: 18px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- Premium background layers --- */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(1000px 600px at 18% 18%, rgba(124, 221, 255, 0.14), transparent 55%),
+        radial-gradient(900px 550px at 85% 30%, rgba(179, 107, 255, 0.12), transparent 55%),
+        radial-gradient(700px 500px at 50% 90%, rgba(124, 221, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, #070b14 0%, #060814 40%, #070b14 100%);
+    }
+    .grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.12;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at top, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* --- Navbar (glass) --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(124, 221, 255, 0.18), rgba(179, 107, 255, 0.16));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    }
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 8px 2px;
+      transition: color 0.25s ease;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-link.active { color: var(--text); }
+    .nav-link.active::after,
+    .nav-link:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      opacity: 0.9;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      min-height: 100vh;
+      padding-top: calc(var(--nav-height) + 40px);
+      display: grid;
+      align-items: center;
+    }
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      width: fit-content;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(124,221,255,0.12);
+    }
+    .hero-title {
+      margin-top: 18px;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+    .hero-title span {
+      background: linear-gradient(90deg, rgba(124,221,255,0.95), rgba(179,107,255,0.92));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-description {
+      margin-top: 16px;
+      max-width: 680px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+    .hero-cta {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: transform 0.18s ease, background 0.18s ease, border 0.18s ease, opacity 0.18s ease;
+      user-select: none;
+      will-change: transform;
+    }
+    .btn-primary {
+      color: #08101a;
+      background: linear-gradient(90deg, rgba(124,221,255,0.95), rgba(179,107,255,0.85));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 18px 55px rgba(124,221,255,0.16);
+    }
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0px); opacity: 0.95; }
+
+    /* Hero side panel */
+    .hero-card {
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card-top {
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pill {
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .hero-card-body { padding: 18px; }
+    .stat {
+      display: grid;
+      gap: 4px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 12px;
+    }
+    .stat b { font-size: 14px; }
+    .stat span { font-size: 12px; color: var(--muted); }
+    .mini-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .mini-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      transition: 0.2s ease;
+    }
+    .mini-links a:hover { color: var(--text); transform: translateY(-2px); }
+
+    /* Sections */
+    section { padding: 96px 0; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .rule {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      opacity: 0.5;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 840px;
+      font-size: 16px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 22px;
+    }
+    .panel {
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+      padding: 22px;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 12px; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 13px;
+      color: rgba(245,247,255,0.85);
+      font-weight: 700;
+    }
+    .chip strong {
+      background: linear-gradient(90deg, rgba(124,221,255,0.9), rgba(179,107,255,0.85));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Projects */
+    .projects-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    .project-card {
+      grid-column: span 6;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.25);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.22s ease, border 0.22s ease, background 0.22s ease;
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(600px 250px at 25% 0%, rgba(124,221,255,0.18), transparent 60%),
+                  radial-gradient(600px 250px at 90% 10%, rgba(179,107,255,0.16), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .project-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .project-meta {
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+    }
+    .project-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .project-tech {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(245,247,255,0.85);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .project-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-small {
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .contact-title {
+      color: rgba(124,221,255,0.9);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* Social + Email (desktop only) */
+    .social-links, .email-link {
+      position: fixed;
+      bottom: 0;
+      padding-bottom: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      z-index: 1001;
+    }
+    .social-links { left: 28px; }
+    .email-link { right: 28px; }
+    .social-links::after, .email-link::after {
+      content: "";
+      width: 1px;
+      height: 96px;
+      background: rgba(255,255,255,0.18);
+    }
+    .social-link {
+      color: rgba(245,247,255,0.55);
+      font-size: 18px;
+      transition: 0.2s ease;
+    }
+    .social-link:hover { color: rgba(124,221,255,0.95); transform: translateY(-2px); }
+
+    .email-link a {
+      color: rgba(245,247,255,0.55);
+      text-decoration: none;
+      writing-mode: vertical-rl;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      transition: 0.2s ease;
+    }
+    .email-link a:hover { color: rgba(179,107,255,0.95); transform: translateY(-2px); }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .project-card { grid-column: span 12; }
+    }
+    @media (max-width: 768px) {
+      .social-links, .email-link { display: none; }
+      section { padding: 76px 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav { height: 72px; }
+      :root { --nav-height: 72px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo" aria-label="Home">RD</a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-wrap">
+        <div class="reveal">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Computer Science @ George Mason University</span>
+          </div>
+
+          <h1 class="hero-title">
+            Ruchita <span>Darur</span>
+          </h1>
+
+          <p class="hero-description">
+            I build modern web applications and scalable backend systems — with experience across
+            cloud deployments, CI/CD pipelines, and ML-backed projects.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-arrow-right"></i> View Projects
+            </a>
+            <a href="mailto:ruchitadarur@gmail.com" class="btn btn-secondary">
+              <i class="fa-solid fa-envelope"></i> Email Me
+            </a>
+          </div>
+        </div>
+
+        <!-- Side card -->
+        <div class="hero-card reveal">
+          <div class="hero-card-top">
+            <div class="pill"><i class="fa-solid fa-sparkles"></i> Open to roles</div>
+            <div class="pill"><i class="fa-solid fa-location-dot"></i> USA</div>
+          </div>
+          <div class="hero-card-body">
+            <div class="stat">
+              <b>Backend • Full-Stack • Cloud</b>
+              <span>Seeking full-time roles (internship as backup)</span>
+            </div>
+            <div class="stat">
+              <b>Tech Focus</b>
+              <span>React / Node / Python • AWS/GCP • CI/CD</span>
+            </div>
+            <div class="mini-links">
+              <a href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <!-- OPTIONAL: add resume link -->
+              <!-- <a href="YOUR_RESUME_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-file"></i> Resume</a> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">About Me</h2>
+        <div class="rule"></div>
+      </div>
+
+      <p class="section-sub reveal">
+        I’m passionate about building technology that feels polished for users and solid under the hood.
+        I enjoy full-stack work, shipping features end-to-end, and improving reliability with cloud + CI/CD.
+      </p>
+
+      <div class="about-grid">
+        <div class="panel about-text reveal">
+          <p>
+            With a strong foundation in frontend + backend development, I build applications that deliver
+            clean UX while keeping performance, scalability, and maintainability in mind.
+          </p>
+          <p style="color: var(--muted-2); font-weight: 700; margin-top: 10px;">
+            Technologies I’ve been working with recently:
+          </p>
+
+          <div class="chips">
+            <div class="chip"><strong>Frontend:</strong> React, Next.js, TypeScript</div>
+            <div class="chip"><strong>Backend:</strong> Node.js, Python, REST APIs</div>
+            <div class="chip"><strong>Cloud:</strong> AWS EC2, GCP, Kubernetes</div>
+            <div class="chip"><strong>DevOps:</strong> Docker, Jenkins, CI/CD</div>
+            <div class="chip"><strong>Data:</strong> SQL, MongoDB</div>
+            <div class="chip"><strong>ML/IoT:</strong> Machine Learning, IoT</div>
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <div class="stat" style="margin-bottom: 10px;">
+            <b>What I’m best at</b>
+            <span>Shipping projects end-to-end with modern UI + dependable backend</span>
+          </div>
+          <div class="stat" style="margin-bottom: 10px;">
+            <b>What I’m learning more</b>
+            <span>System design, distributed systems, and production-grade cloud patterns</span>
+          </div>
+          <div class="stat" style="margin-bottom: 0;">
+            <b>How I work</b>
+            <span>Fast iterations, clean code, clear docs, and measurable impact</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Some Things I’ve Built</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div>
+              <div class="project-title">
+                <i class="fa-solid fa-chart-simple" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
+                Student Survey Form
+              </div>
+            </div>
+            <div class="project-meta">Jan 2024 – Present</div>
+          </div>
+          <p class="project-description">
+            Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins.
+            Includes Docker containerization, Kubernetes orchestration, and automated deployments.
+          </p>
+          <div class="project-tech">
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">GCP</span>
+            <span class="tag">Java</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-title">
+              <i class="fa-solid fa-layer-group" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
+              Kanban Task Management Board
+            </div>
+            <div class="project-meta">Oct 2024 – Dec 2024</div>
+          </div>
+          <p class="project-description">
+            Modern Kanban board built with Next.js + React featuring drag-and-drop, task prioritization, and deadline management —
+            optimized for a clean, intuitive workflow.
+          </p>
+          <div class="project-tech">
+            <span class="tag">Next.js</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">Framer Motion</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://kanban-to-do-list-two.vercel.app/" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
+            </a>
+            <a href="https://github.com/ruchitadaru20/KanbanToDoList" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github"></i> Code
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-title">
+              <i class="fa-solid fa-droplet" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
+              Blood Bank Management System
+            </div>
+            <div class="project-meta">Nov 2021 – Jan 2022</div>
+          </div>
+          <p class="project-description">
+            Centralized web-based system that improves blood donation operations with better management and real-time inventory tracking.
+          </p>
+          <div class="project-tech">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-title">
+              <i class="fa-solid fa-rocket" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
+              Space Shuttle Simulation
+            </div>
+            <div class="project-meta">May 2022 – Jul 2022</div>
+          </div>
+          <p class="project-description">
+            3D space shuttle simulation featuring animations for launch, flight, and landing with interactive controls.
+          </p>
+          <div class="project-tech">
+            <span class="tag">OpenGL</span>
+            <span class="tag">C++</span>
+            <span class="tag">3D Graphics</span>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-title">
+              <i class="fa-solid fa-seedling" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
+              Automatic Weed Detection & Cutting (ML + IoT)
+            </div>
+            <div class="project-meta">Oct 2022 – May 2023</div>
+          </div>
+          <p class="project-description">
+            IoT-based agriculture solution using machine learning for real-time weed detection and autonomous cutting —
+            improving efficiency and minimizing herbicide usage.
+          </p>
+          <div class="project-tech">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Python</span>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-title">
+              <i class="fa-solid fa-user-check" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
+              Attendance App
+            </div>
+            <div class="project-meta">Feb 2022 – May 2022</div>
+          </div>
+          <p class="project-description">
+            Mobile app for seamless attendance tracking, reducing manual errors and integrating smoothly with classroom workflows.
+          </p>
+          <div class="project-tech">
+            <span class="tag">Flutter</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Mobile</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact panel reveal">
+        <p class="contact-title">What’s next?</p>
+        <div class="section-head" style="justify-content:center; margin-bottom: 10px;">
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <p class="section-sub" style="margin: 0 auto 18px;">
+          I’m currently looking for new opportunities. Whether you have a question
+          or just want to say hi, I’ll try my best to get back to you!
+        </p>
+        <a href="mailto:ruchitadarur@gmail.com" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Say Hello
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Links -->
+  <div class="social-links" aria-label="Social links">
+    <a href="https://github.com/ruchitadarur20" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+  <!-- Email Link -->
+  <div class="email-link" aria-label="Email">
+    <a href="mailto:ruchitadarur@gmail.com">ruchitadarur@gmail.com</a>
+  </div>
+
+  <!-- JS: Scroll reveal + Active nav -->
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    // Active nav link highlight
+    const sections = ["about","projects","contact"].map(id => document.getElementById(id));
+    const navLinks = [...document.querySelectorAll(".nav-link")];
+
+    const setActive = () => {
+      let current = "about";
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      });
+    };
+
+    window.addEventListener("scroll", setActive, { passive: true });
+    window.addEventListener("load", setActive);
+  </script>
 </body>
 </html>
