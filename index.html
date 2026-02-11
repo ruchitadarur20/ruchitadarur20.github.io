@@ -533,836 +533,594 @@
   <title>Ruchita Darur | Portfolio</title>
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
   <style>
-    :root {
-      --bg: #070b14;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-strong: rgba(255, 255, 255, 0.09);
-      --border: rgba(255, 255, 255, 0.10);
-      --text: rgba(245, 247, 255, 0.92);
-      --muted: rgba(245, 247, 255, 0.62);
-      --muted-2: rgba(245, 247, 255, 0.45);
-      --accent: #7cddff;
-      --accent-2: #b36bff;
-      --shadow: 0 24px 80px rgba(0,0,0,0.55);
-      --nav-height: 78px;
+    :root{
+      --bg:#050b18;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(245,247,255,.92);
+      --muted: rgba(245,247,255,.62);
+
+      --a1:#35d6ff;
+      --a2:#8a5cff;
+
+      --shadow: 0 28px 90px rgba(0,0,0,.55);
       --radius: 18px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
 
-    /* --- Premium background layers --- */
-    .bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
+    /* ===== Background (glow + vignette) ===== */
+    .bg{
+      position:fixed; inset:0; z-index:-3;
       background:
-        radial-gradient(1000px 600px at 18% 18%, rgba(124, 221, 255, 0.14), transparent 55%),
-        radial-gradient(900px 550px at 85% 30%, rgba(179, 107, 255, 0.12), transparent 55%),
-        radial-gradient(700px 500px at 50% 90%, rgba(124, 221, 255, 0.08), transparent 60%),
-        linear-gradient(180deg, #070b14 0%, #060814 40%, #070b14 100%);
+        radial-gradient(1200px 700px at 15% 15%, rgba(53,214,255,.18), transparent 60%),
+        radial-gradient(1100px 650px at 85% 30%, rgba(138,92,255,.16), transparent 55%),
+        radial-gradient(900px 600px at 50% 85%, rgba(53,214,255,.10), transparent 60%),
+        linear-gradient(180deg, #050b18 0%, #050a17 45%, #040814 100%);
     }
-    .grid {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.12;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at top, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
+    .vignette{
+      position:fixed; inset:-2px; z-index:-2; pointer-events:none;
+      background: radial-gradient(circle at 50% 35%, transparent 35%, rgba(0,0,0,.55) 100%);
+      opacity:.55;
     }
 
-    .container {
-      max-width: 1140px;
+    .container{
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 22px;
     }
 
-    /* --- Navbar (glass) --- */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: var(--nav-height);
-      z-index: 1000;
-      background: rgba(7, 11, 20, 0.55);
+    /* ===== Top centered nav (pill) ===== */
+    header{
+      position:fixed;
+      top: 18px;
+      left: 0; right: 0;
+      z-index: 50;
+    }
+
+    .nav-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .nav-pill{
+      width:min(980px, calc(100% - 24px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 14px 18px;
+
+      background: rgba(10,16,34,.55);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      box-shadow: 0 18px 70px rgba(0,0,0,.35);
     }
-    .nav-container {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      padding-left: 6px;
     }
-    .logo {
+    .brand-badge{
       width: 44px; height: 44px;
       border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-      background: linear-gradient(135deg, rgba(124, 221, 255, 0.18), rgba(179, 107, 255, 0.16));
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      display:grid; place-items:center;
+      font-weight: 900;
+      letter-spacing:-.02em;
+
+      background: linear-gradient(135deg, rgba(53,214,255,.20), rgba(138,92,255,.18));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
     }
-    .nav-links {
-      display: flex;
-      gap: 26px;
-      align-items: center;
-    }
-    .nav-link {
-      position: relative;
+    .brand small{
+      display:block;
       color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.01em;
-      padding: 8px 2px;
-      transition: color 0.25s ease;
+      font-size: 12px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
     }
-    .nav-link:hover { color: var(--text); }
-    .nav-link.active { color: var(--text); }
-    .nav-link.active::after,
-    .nav-link:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 2px;
-      height: 2px;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      opacity: 0.9;
+    .brand b{
+      display:block;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing:-.01em;
     }
 
-    /* --- Hero --- */
-    .hero {
-      min-height: 100vh;
-      padding-top: calc(var(--nav-height) + 40px);
-      display: grid;
-      align-items: center;
-    }
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 34px;
-      align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
+    .nav-links{
+      display:flex;
       gap: 10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-links a{
+      text-decoration:none;
+      color: rgba(245,247,255,.70);
+      font-weight: 700;
+      font-size: 13px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 13px;
-      width: fit-content;
+      transition: .18s ease;
+      position:relative;
+      white-space:nowrap;
     }
-    .dot {
-      width: 8px; height: 8px; border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 4px rgba(124,221,255,0.12);
-    }
-    .hero-title {
-      margin-top: 18px;
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      font-weight: 800;
-    }
-    .hero-title span {
-      background: linear-gradient(90deg, rgba(124,221,255,0.95), rgba(179,107,255,0.92));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero-description {
-      margin-top: 16px;
-      max-width: 680px;
-      font-size: 17px;
-      color: var(--muted);
-    }
-    .hero-cta {
-      margin-top: 26px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: transform 0.18s ease, background 0.18s ease, border 0.18s ease, opacity 0.18s ease;
-      user-select: none;
-      will-change: transform;
-    }
-    .btn-primary {
-      color: #08101a;
-      background: linear-gradient(90deg, rgba(124,221,255,0.95), rgba(179,107,255,0.85));
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 18px 55px rgba(124,221,255,0.16);
-    }
-    .btn-secondary {
+    .nav-links a:hover{
       color: var(--text);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,.06);
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn:active { transform: translateY(0px); opacity: 0.95; }
+    .nav-links a.active{
+      color: var(--text);
+      background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 16px 45px rgba(53,214,255,.12);
+    }
 
-    /* Hero side panel */
-    .hero-card {
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    /* ===== Hero layout ===== */
+    .hero{
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      padding-top: 130px;
+      padding-bottom: 60px;
     }
-    .hero-card-top {
-      padding: 18px 18px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 40px;
+      align-items:center;
     }
-    .pill {
+
+    .kicker{
+      color: rgba(245,247,255,.65);
+      font-weight: 700;
       font-size: 12px;
-      padding: 8px 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      display:flex; gap: 12px; align-items:center;
+      margin-bottom: 14px;
+    }
+    .kicker .line{
+      height: 2px; width: 40px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: var(--muted);
-      font-weight: 700;
+      background: linear-gradient(90deg, var(--a1), var(--a2));
+      opacity:.85;
     }
-    .hero-card-body { padding: 18px; }
-    .stat {
-      display: grid;
-      gap: 4px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 12px;
-    }
-    .stat b { font-size: 14px; }
-    .stat span { font-size: 12px; color: var(--muted); }
-    .mini-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .mini-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      transition: 0.2s ease;
-    }
-    .mini-links a:hover { color: var(--text); transform: translateY(-2px); }
 
-    /* Sections */
-    section { padding: 96px 0; }
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .section-title {
-      font-size: 26px;
+    .role{
+      color: rgba(53,214,255,.85);
       font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .rule {
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.12);
-      opacity: 0.5;
-    }
-    .section-sub {
-      color: var(--muted);
-      max-width: 840px;
-      font-size: 16px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
 
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: start;
-      margin-top: 22px;
+    .name{
+      font-size: clamp(44px, 6vw, 86px);
+      line-height: .95;
+      letter-spacing: -.05em;
+      font-weight: 900;
+      margin: 6px 0 12px;
     }
-    .panel {
-      border-radius: var(--radius);
-      background: var(--panel);
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.25);
-      padding: 22px;
-    }
-    .about-text p { color: var(--muted); margin-bottom: 12px; }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .chip {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 13px;
-      color: rgba(245,247,255,0.85);
-      font-weight: 700;
-    }
-    .chip strong {
-      background: linear-gradient(90deg, rgba(124,221,255,0.9), rgba(179,107,255,0.85));
-      -webkit-background-clip: text;
-      background-clip: text;
+    .name .last{
+      background: linear-gradient(90deg, rgba(53,214,255,.98), rgba(138,92,255,.92));
+      -webkit-background-clip:text;
+      background-clip:text;
       color: transparent;
+      display:inline-block;
     }
 
-    /* Projects */
-    .projects-grid {
+    .quote{
+      margin-top: 12px;
+      color: rgba(245,247,255,.70);
+      font-style: italic;
+      font-size: 16px;
+      max-width: 680px;
+    }
+
+    .cta-row{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing:.02em;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      box-shadow: 0 18px 70px rgba(0,0,0,.25);
+    }
+    .btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,.08); }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 22px 70px rgba(53,214,255,.12);
+    }
+    .btn .ic{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+
+    /* ===== Right image card ===== */
+    .portrait-card{
+      position:relative;
+      border-radius: 26px;
+      padding: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .portrait-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 260px at 20% 0%, rgba(53,214,255,.22), transparent 55%),
+        radial-gradient(700px 260px at 85% 10%, rgba(138,92,255,.18), transparent 55%);
+      opacity: .70;
+      pointer-events:none;
+    }
+    .portrait{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.10);
+      position:relative;
+      z-index:1;
+      filter: contrast(1.05) saturate(1.05);
+    }
+
+    /* Floating ring accent */
+    .ring{
+      position:absolute;
+      left: -26px;
+      top: 45%;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      border: 2px solid rgba(53,214,255,.65);
+      box-shadow: 0 0 0 10px rgba(53,214,255,.08);
+      background: rgba(5,11,24,.55);
+      z-index: 2;
+      animation: float 3.2s ease-in-out infinite;
+    }
+    .ring::after{
+      content:"";
+      position:absolute;
+      inset: 16px;
+      border-radius:999px;
+      background: rgba(53,214,255,.25);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    @keyframes float{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-10px); }
+    }
+
+    /* Scroll down arrow */
+    .scroll-down{
+      position:absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      color: rgba(245,247,255,.55);
+      font-size: 22px;
+      text-decoration:none;
+      transition:.18s ease;
+      opacity:.85;
+    }
+    .scroll-down:hover{ color: rgba(53,214,255,.85); transform: translateX(-50%) translateY(2px); }
+
+    /* ===== Sections base ===== */
+    section{
+      padding: 90px 0;
+    }
+    .section-title{
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .section-sub{
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    /* Simple project grid */
+    .cards{
       margin-top: 22px;
-      display: grid;
+      display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
     }
-    .project-card {
+    .card{
       grid-column: span 6;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 20px 70px rgba(0,0,0,0.25);
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.22s ease, border 0.22s ease, background 0.22s ease;
+      padding: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.22);
+      transition: .18s ease;
+      position:relative;
+      overflow:hidden;
     }
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: radial-gradient(600px 250px at 25% 0%, rgba(124,221,255,0.18), transparent 60%),
-                  radial-gradient(600px 250px at 90% 10%, rgba(179,107,255,0.16), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.22s ease;
-      pointer-events: none;
-    }
-    .project-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .project-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-    .project-meta {
-      color: var(--muted-2);
+    .card:hover{ transform: translateY(-6px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
+    .card h3{ font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+    .card p{ color: var(--muted); font-size: 13px; }
+    .tags{ margin-top: 12px; display:flex; flex-wrap:wrap; gap: 8px; }
+    .tag{
       font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
+      font-weight: 800;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-    }
-    .project-description {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 8px;
-      position: relative;
-      z-index: 1;
-    }
-    .project-tech {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-    }
-    .tag {
-      font-size: 12px;
-      font-weight: 800;
-      color: rgba(245,247,255,0.85);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-    .project-actions {
-      margin-top: 16px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .btn-small {
-      padding: 10px 12px;
-      border-radius: 14px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    /* Contact */
-    .contact {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .contact-title {
-      color: rgba(124,221,255,0.9);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    /* Social + Email (desktop only) */
-    .social-links, .email-link {
-      position: fixed;
-      bottom: 0;
-      padding-bottom: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      z-index: 1001;
-    }
-    .social-links { left: 28px; }
-    .email-link { right: 28px; }
-    .social-links::after, .email-link::after {
-      content: "";
-      width: 1px;
-      height: 96px;
-      background: rgba(255,255,255,0.18);
-    }
-    .social-link {
-      color: rgba(245,247,255,0.55);
-      font-size: 18px;
-      transition: 0.2s ease;
-    }
-    .social-link:hover { color: rgba(124,221,255,0.95); transform: translateY(-2px); }
-
-    .email-link a {
-      color: rgba(245,247,255,0.55);
-      text-decoration: none;
-      writing-mode: vertical-rl;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      transition: 0.2s ease;
-    }
-    .email-link a:hover { color: rgba(179,107,255,0.95); transform: translateY(-2px); }
-
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(245,247,255,.80);
     }
 
     /* Responsive */
-    @media (max-width: 920px) {
-      .hero-wrap { grid-template-columns: 1fr; }
-      .project-card { grid-column: span 12; }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; gap: 26px; }
+      .portrait-card{ max-width: 520px; margin: 0 auto; }
+      .ring{ left: 14px; top: 24px; }
     }
-    @media (max-width: 768px) {
-      .social-links, .email-link { display: none; }
-      section { padding: 76px 0; }
-      .about-grid { grid-template-columns: 1fr; }
-      nav { height: 72px; }
-      :root { --nav-height: 72px; }
+    @media (max-width: 760px){
+      header{ top: 10px; }
+      .brand small{ display:none; }
+      .nav-pill{ padding: 10px 12px; border-radius: 22px; }
+      .nav-links{ width: 100%; justify-content: flex-start; overflow:auto; scrollbar-width:none; }
+      .nav-links::-webkit-scrollbar{ display:none; }
+      .card{ grid-column: span 12; }
     }
   </style>
 </head>
 
 <body>
   <div class="bg"></div>
-  <div class="grid"></div>
+  <div class="vignette"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-container">
-      <a href="#" class="logo" aria-label="Home">RD</a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
+  <!-- NAV -->
+  <header>
+    <div class="nav-wrap container">
+      <div class="nav-pill">
+        <div class="brand">
+          <div class="brand-badge">RD</div>
+          <div>
+            <small>Portfolio</small>
+            <b>Ruchita Darur</b>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-wrap">
-        <div class="reveal">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            <span>Computer Science @ George Mason University</span>
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container" style="position:relative;">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">
+            <span class="line"></span>
+            <span>Digital Systems • Cloud • Web</span>
           </div>
 
-          <h1 class="hero-title">
-            Ruchita <span>Darur</span>
-          </h1>
+          <div class="role">FULL-STACK / BACKEND ENGINEER</div>
 
-          <p class="hero-description">
-            I build modern web applications and scalable backend systems — with experience across
-            cloud deployments, CI/CD pipelines, and ML-backed projects.
+          <div class="name">
+            Ruchita<br/>
+            <span class="last">Darur</span>
+          </div>
+
+          <p style="color: rgba(245,247,255,.70); max-width: 680px;">
+            Computer Science graduate student at George Mason University, building modern web apps,
+            scalable backend systems, and cloud deployments.
           </p>
 
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fa-solid fa-arrow-right"></i> View Projects
+          <p class="quote">
+            “Build with intention, test with care, and deploy with confidence.”
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#about">
+              <span class="ic"><i class="fa-solid fa-user"></i></span>
+              Explore Me
             </a>
-            <a href="mailto:ruchitadarur@gmail.com" class="btn btn-secondary">
-              <i class="fa-solid fa-envelope"></i> Email Me
+
+            <a class="btn" href="mailto:ruchitadarur@gmail.com">
+              <span class="ic"><i class="fa-solid fa-envelope"></i></span>
+              Contact Me
             </a>
+
+            <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
+              <span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>
+              LinkedIn
+            </a>
+
+            <!-- OPTIONAL: Resume button -->
+            <!--
+            <a class="btn" href="YOUR_RESUME_LINK" target="_blank" rel="noopener">
+              <span class="ic"><i class="fa-solid fa-file-arrow-down"></i></span>
+              Resume
+            </a>
+            -->
           </div>
         </div>
 
-        <!-- Side card -->
-        <div class="hero-card reveal">
-          <div class="hero-card-top">
-            <div class="pill"><i class="fa-solid fa-sparkles"></i> Open to roles</div>
-            <div class="pill"><i class="fa-solid fa-location-dot"></i> USA</div>
-          </div>
-          <div class="hero-card-body">
-            <div class="stat">
-              <b>Backend • Full-Stack • Cloud</b>
-              <span>Seeking full-time roles (internship as backup)</span>
-            </div>
-            <div class="stat">
-              <b>Tech Focus</b>
-              <span>React / Node / Python • AWS/GCP • CI/CD</span>
-            </div>
-            <div class="mini-links">
-              <a href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
-              </a>
-              <!-- OPTIONAL: add resume link -->
-              <!-- <a href="YOUR_RESUME_LINK" target="_blank" rel="noopener"><i class="fa-solid fa-file"></i> Resume</a> -->
-            </div>
-          </div>
+        <div class="portrait-card">
+          <div class="ring" aria-hidden="true"></div>
+          <img
+            class="portrait"
+            src="YOUR_IMAGE.jpg"
+            alt="Ruchita Darur portrait"
+          />
         </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- About -->
+      <a class="scroll-down" href="#about" aria-label="Scroll down">
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">About Me</h2>
-        <div class="rule"></div>
-      </div>
-
-      <p class="section-sub reveal">
-        I’m passionate about building technology that feels polished for users and solid under the hood.
-        I enjoy full-stack work, shipping features end-to-end, and improving reliability with cloud + CI/CD.
+      <div class="section-title">About</div>
+      <p class="section-sub">
+        I enjoy building full-stack products end-to-end — clean UI, solid APIs, and reliable deployments.
+        I care about maintainability, performance, and shipping with confidence.
       </p>
+    </div>
+  </section>
 
-      <div class="about-grid">
-        <div class="panel about-text reveal">
-          <p>
-            With a strong foundation in frontend + backend development, I build applications that deliver
-            clean UX while keeping performance, scalability, and maintainability in mind.
-          </p>
-          <p style="color: var(--muted-2); font-weight: 700; margin-top: 10px;">
-            Technologies I’ve been working with recently:
-          </p>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">Skills</div>
+      <p class="section-sub">A quick snapshot of what I work with most:</p>
 
-          <div class="chips">
-            <div class="chip"><strong>Frontend:</strong> React, Next.js, TypeScript</div>
-            <div class="chip"><strong>Backend:</strong> Node.js, Python, REST APIs</div>
-            <div class="chip"><strong>Cloud:</strong> AWS EC2, GCP, Kubernetes</div>
-            <div class="chip"><strong>DevOps:</strong> Docker, Jenkins, CI/CD</div>
-            <div class="chip"><strong>Data:</strong> SQL, MongoDB</div>
-            <div class="chip"><strong>ML/IoT:</strong> Machine Learning, IoT</div>
+      <div class="cards">
+        <div class="card">
+          <h3>Frontend</h3>
+          <p>React, Next.js, TypeScript, HTML/CSS</p>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
           </div>
         </div>
-
-        <div class="panel reveal">
-          <div class="stat" style="margin-bottom: 10px;">
-            <b>What I’m best at</b>
-            <span>Shipping projects end-to-end with modern UI + dependable backend</span>
+        <div class="card">
+          <h3>Backend</h3>
+          <p>Node.js, Python, REST APIs, SQL</p>
+          <div class="tags">
+            <span class="tag">Node</span><span class="tag">Python</span><span class="tag">REST</span><span class="tag">SQL</span>
           </div>
-          <div class="stat" style="margin-bottom: 10px;">
-            <b>What I’m learning more</b>
-            <span>System design, distributed systems, and production-grade cloud patterns</span>
+        </div>
+        <div class="card">
+          <h3>Cloud / DevOps</h3>
+          <p>Docker, Kubernetes, Jenkins, AWS, GCP</p>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">K8s</span><span class="tag">Jenkins</span><span class="tag">AWS</span><span class="tag">GCP</span>
           </div>
-          <div class="stat" style="margin-bottom: 0;">
-            <b>How I work</b>
-            <span>Fast iterations, clean code, clear docs, and measurable impact</span>
+        </div>
+        <div class="card">
+          <h3>Data / ML / IoT</h3>
+          <p>MongoDB, ML basics, IoT prototypes</p>
+          <div class="tags">
+            <span class="tag">MongoDB</span><span class="tag">ML</span><span class="tag">IoT</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Some Things I’ve Built</h2>
-        <div class="rule"></div>
-      </div>
+      <div class="section-title">Projects</div>
+      <p class="section-sub">Selected work (replace/edit as needed):</p>
 
-      <div class="projects-grid">
-
-        <!-- Project 1 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div>
-              <div class="project-title">
-                <i class="fa-solid fa-chart-simple" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
-                Student Survey Form
-              </div>
-            </div>
-            <div class="project-meta">Jan 2024 – Present</div>
+      <div class="cards">
+        <div class="card">
+          <h3>Kanban Task Management Board</h3>
+          <p>Drag-and-drop Kanban board with prioritization + deadlines.</p>
+          <div class="tags">
+            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TS</span><span class="tag">Tailwind</span>
           </div>
-          <p class="project-description">
-            Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins.
-            Includes Docker containerization, Kubernetes orchestration, and automated deployments.
+          <p style="margin-top:12px; font-size:13px;">
+            <a style="color:var(--a1); font-weight:800; text-decoration:none;" href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
+            <span style="color:rgba(255,255,255,.25)"> • </span>
+            <a style="color:var(--a1); font-weight:800; text-decoration:none;" href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
           </p>
-          <div class="project-tech">
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Java</span>
-          </div>
-        </article>
+        </div>
 
-        <!-- Project 2 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-title">
-              <i class="fa-solid fa-layer-group" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
-              Kanban Task Management Board
-            </div>
-            <div class="project-meta">Oct 2024 – Dec 2024</div>
+        <div class="card">
+          <h3>Student Survey Form (CI/CD + GKE)</h3>
+          <p>Containerized deployment on GKE with Jenkins pipeline.</p>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span>
           </div>
-          <p class="project-description">
-            Modern Kanban board built with Next.js + React featuring drag-and-drop, task prioritization, and deadline management —
-            optimized for a clean, intuitive workflow.
-          </p>
-          <div class="project-tech">
-            <span class="tag">Next.js</span>
-            <span class="tag">React</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Tailwind</span>
-            <span class="tag">Framer Motion</span>
-          </div>
-          <div class="project-actions">
-            <a href="https://kanban-to-do-list-two.vercel.app/" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
-            </a>
-            <a href="https://github.com/ruchitadaru20/KanbanToDoList" class="btn btn-secondary btn-small" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github"></i> Code
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-title">
-              <i class="fa-solid fa-droplet" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
-              Blood Bank Management System
-            </div>
-            <div class="project-meta">Nov 2021 – Jan 2022</div>
-          </div>
-          <p class="project-description">
-            Centralized web-based system that improves blood donation operations with better management and real-time inventory tracking.
-          </p>
-          <div class="project-tech">
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">JavaScript</span>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-title">
-              <i class="fa-solid fa-rocket" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
-              Space Shuttle Simulation
-            </div>
-            <div class="project-meta">May 2022 – Jul 2022</div>
-          </div>
-          <p class="project-description">
-            3D space shuttle simulation featuring animations for launch, flight, and landing with interactive controls.
-          </p>
-          <div class="project-tech">
-            <span class="tag">OpenGL</span>
-            <span class="tag">C++</span>
-            <span class="tag">3D Graphics</span>
-          </div>
-        </article>
-
-        <!-- Project 5 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-title">
-              <i class="fa-solid fa-seedling" style="color: rgba(124,221,255,0.9); margin-right: 8px;"></i>
-              Automatic Weed Detection & Cutting (ML + IoT)
-            </div>
-            <div class="project-meta">Oct 2022 – May 2023</div>
-          </div>
-          <p class="project-description">
-            IoT-based agriculture solution using machine learning for real-time weed detection and autonomous cutting —
-            improving efficiency and minimizing herbicide usage.
-          </p>
-          <div class="project-tech">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Python</span>
-          </div>
-        </article>
-
-        <!-- Project 6 -->
-        <article class="project-card reveal">
-          <div class="project-top">
-            <div class="project-title">
-              <i class="fa-solid fa-user-check" style="color: rgba(179,107,255,0.9); margin-right: 8px;"></i>
-              Attendance App
-            </div>
-            <div class="project-meta">Feb 2022 – May 2022</div>
-          </div>
-          <p class="project-description">
-            Mobile app for seamless attendance tracking, reducing manual errors and integrating smoothly with classroom workflows.
-          </p>
-          <div class="project-tech">
-            <span class="tag">Flutter</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Mobile</span>
-          </div>
-        </article>
-
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <div class="contact panel reveal">
-        <p class="contact-title">What’s next?</p>
-        <div class="section-head" style="justify-content:center; margin-bottom: 10px;">
-          <h2 class="section-title">Get In Touch</h2>
-        </div>
-        <p class="section-sub" style="margin: 0 auto 18px;">
-          I’m currently looking for new opportunities. Whether you have a question
-          or just want to say hi, I’ll try my best to get back to you!
-        </p>
-        <a href="mailto:ruchitadarur@gmail.com" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i> Say Hello
+      <div class="section-title">Contact</div>
+      <p class="section-sub">
+        Want to collaborate or discuss opportunities? Reach out anytime.
+      </p>
+      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary" href="mailto:ruchitadarur@gmail.com">
+          <span class="ic"><i class="fa-solid fa-paper-plane"></i></span>
+          Say Hello
+        </a>
+        <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
+          <span class="ic"><i class="fa-brands fa-github"></i></span>
+          GitHub
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Social Links -->
-  <div class="social-links" aria-label="Social links">
-    <a href="https://github.com/ruchitadarur20" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
-
-  <!-- Email Link -->
-  <div class="email-link" aria-label="Email">
-    <a href="mailto:ruchitadarur@gmail.com">ruchitadarur@gmail.com</a>
-  </div>
-
-  <!-- JS: Scroll reveal + Active nav -->
   <script>
-    // Reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("show");
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-    // Active nav link highlight
-    const sections = ["about","projects","contact"].map(id => document.getElementById(id));
-    const navLinks = [...document.querySelectorAll(".nav-link")];
+    // Active nav link based on scroll
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const ids = navLinks.map(a => a.getAttribute("href")).filter(h => h && h.startsWith("#"));
+    const sections = ids.map(id => document.querySelector(id)).filter(Boolean);
 
     const setActive = () => {
-      let current = "about";
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
-      });
-      navLinks.forEach(a => {
-        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
-      });
+      let current = "#home";
+      for (const sec of sections) {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= 140 && r.bottom >= 140) current = "#" + sec.id;
+      }
+      navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === current));
     };
 
     window.addEventListener("scroll", setActive, { passive: true });
