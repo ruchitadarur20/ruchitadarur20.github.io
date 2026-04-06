@@ -1190,141 +1190,138 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">Projects</div>
-      <p class="section-sub">All projects (including earlier ones) + your latest resume projects:</p>
+<section id="projects">
+  <div class="container">
+    <div class="section-title">Projects</div>
 
-      <div class="cards">
-        <!-- Portfolio Project -->
-        <div class="card">
-          <h3>Personal Portfolio – Technology Architect & Full-Stack Developer</h3>
-          <p>
-            Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements,
-            and passion for building scalable, user-focused digital solutions.
-          </p>
+    <p class="section-sub" style="margin-bottom: 12px;">Personal Projects</p>
+    <div class="cards" style="margin-bottom: 48px;">
 
-          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
-          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
-            <li>Clean and futuristic UI with smooth animations</li>
-            <li>Fully responsive design across all devices</li>
-            <li>Interactive sections for skills, projects, and achievements</li>
-            <li>Professional contact section for seamless collaboration</li>
-          </ul>
-
-          <div class="tags">
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">GSAP</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">React</span>
-            <span class="tag">UI/UX</span>
-          </div>
-          <div class="links">
-            <a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a>
-          </div>
+      <div class="card">
+        <h3>TaskFlow — Full-Stack Task Management API</h3>
+        <p>Built a production-grade task and project management platform from scratch. Designed and implemented a RESTful FastAPI backend with JWT authentication, PostgreSQL database, real-time WebSocket notifications, background jobs via Celery + Redis, and a React + TypeScript frontend with live activity feeds, due date tracking, and role-based access.</p>
+        <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+        <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+          <li>JWT auth with access + refresh token rotation</li>
+          <li>Real-time notifications via WebSockets</li>
+          <li>Background email jobs with Celery + Redis</li>
+          <li>Full CI/CD pipeline with GitHub Actions</li>
+          <li>Deployed on Render + Vercel + Neon (PostgreSQL)</li>
+        </ul>
+        <div class="meta"><span>Apr 2026</span></div>
+        <div class="tags">
+          <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span><span class="tag">WebSockets</span>
         </div>
-
-        <!-- New resume projects -->
-        <div class="card">
-          <h3>Scalable Cloud-Based Student Feedback System</h3>
-          <p>
-            Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs
-            to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.
-          </p>
-          <div class="meta"><span>George Mason University</span><span>•</span><span>Jan 2025 – May 2025</span></div>
-          <div class="tags">
-            <span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS EC2</span><span class="tag">Docker</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Academic Data Analytics System</h3>
-          <p>
-            Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards
-            improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.
-          </p>
-          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
-          <div class="tags">
-            <span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span>
-          </div>
-        </div>
-
-        <!-- Earlier projects (DO NOT REMOVE) -->
-        <div class="card">
-          <h3>Student Survey Form</h3>
-          <p>
-            Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins.
-            Includes Docker containerization, Kubernetes orchestration, and automated deployments.
-          </p>
-          <div class="meta"><span>Jan 2024 – Present</span></div>
-          <div class="tags">
-            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Kanban Task Management Board</h3>
-          <p>
-            Modern Kanban board built with Next.js and React featuring drag-and-drop, task prioritization, and deadline management.
-          </p>
-          <div class="meta"><span>Oct 2024 – Dec 2024</span></div>
-          <div class="tags">
-            <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span>
-          </div>
-          <div class="links">
-            <a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
-            <span>•</span>
-            <a href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Blood Bank Management System</h3>
-          <p>
-            Centralized web-based system enhancing blood donation operations with real-time inventory tracking.
-          </p>
-          <div class="meta"><span>Nov 2021 – Jan 2022</span></div>
-          <div class="tags">
-            <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Space Shuttle Simulation</h3>
-          <p>
-            3D space shuttle simulation featuring detailed animations for launch, flight, and landing with interactive controls.
-          </p>
-          <div class="meta"><span>May 2022 – Jul 2022</span></div>
-          <div class="tags">
-            <span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">3D Graphics</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Automatic Weed Detection and Cutting (ML + IoT)</h3>
-          <p>
-            IoT-based agricultural solution using machine learning for real-time weed detection and autonomous cutting,
-            enhancing efficiency and minimizing herbicide use.
-          </p>
-          <div class="meta"><span>Oct 2022 – May 2023</span></div>
-          <div class="tags">
-            <span class="tag">Machine Learning</span><span class="tag">IoT</span><span class="tag">Python</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Attendance App</h3>
-          <p>
-            Designed a mobile app for attendance tracking, reducing manual errors and improving classroom workflow integration.
-          </p>
-          <div class="meta"><span>Feb 2022 – May 2022</span></div>
-          <div class="tags">
-            <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Mobile</span>
-          </div>
+        <div class="links">
+          <a href="https://taskflow-1o0cll5tv-ruchita-darurs-projects.vercel.app" target="_blank" rel="noopener">Live</a>
+          <span>•</span>
+          <a href="https://github.com/ruchitadarur20/taskflow-api" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
+
+      <div class="card">
+        <h3>Personal Portfolio – Technology Architect & Full-Stack Developer</h3>
+        <p>Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.</p>
+        <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+        <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+          <li>Clean and futuristic UI with smooth animations</li>
+          <li>Fully responsive design across all devices</li>
+          <li>Interactive sections for skills, projects, and achievements</li>
+          <li>Professional contact section for seamless collaboration</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">UI/UX</span>
+        </div>
+        <div class="links">
+          <a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Kanban Task Management Board</h3>
+        <p>Modern Kanban board built with Next.js and React featuring drag-and-drop, task prioritization, and deadline management.</p>
+        <div class="meta"><span>Oct 2024 – Dec 2024</span></div>
+        <div class="tags">
+          <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span>
+        </div>
+        <div class="links">
+          <a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
+          <span>•</span>
+          <a href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Academic Data Analytics System</h3>
+        <p>Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.</p>
+        <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
+        <div class="tags">
+          <span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+    <p class="section-sub" style="margin-bottom: 12px;">Academic Projects</p>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Scalable Cloud-Based Student Feedback System</h3>
+        <p>Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.</p>
+        <div class="meta"><span>George Mason University</span><span>•</span><span>Jan 2025 – May 2025</span></div>
+        <div class="tags">
+          <span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS EC2</span><span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Student Survey Form</h3>
+        <p>Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins. Includes Docker containerization, Kubernetes orchestration, and automated deployments.</p>
+        <div class="meta"><span>Jan 2024 – Present</span></div>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Blood Bank Management System</h3>
+        <p>Centralized web-based system enhancing blood donation operations with real-time inventory tracking.</p>
+        <div class="meta"><span>Nov 2021 – Jan 2022</span></div>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Space Shuttle Simulation</h3>
+        <p>3D space shuttle simulation featuring detailed animations for launch, flight, and landing with interactive controls.</p>
+        <div class="meta"><span>May 2022 – Jul 2022</span></div>
+        <div class="tags">
+          <span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">3D Graphics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Automatic Weed Detection and Cutting (ML + IoT)</h3>
+        <p>IoT-based agricultural solution using machine learning for real-time weed detection and autonomous cutting, enhancing efficiency and minimizing herbicide use.</p>
+        <div class="meta"><span>Oct 2022 – May 2023</span></div>
+        <div class="tags">
+          <span class="tag">Machine Learning</span><span class="tag">IoT</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Attendance App</h3>
+        <p>Designed a mobile app for attendance tracking, reducing manual errors and improving classroom workflow integration.</p>
+        <div class="meta"><span>Feb 2022 – May 2022</span></div>
+        <div class="tags">
+          <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Mobile</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
