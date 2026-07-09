@@ -1,541 +1,12 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruchita Darur | Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --bg-primary: #0a192f;
-      --bg-secondary: #112240;
-      --text-primary: #ccd6f6;
-      --text-secondary: #8892b0;
-      --accent: #64ffda;
-      --nav-height: 100px;
-    }
+  <meta name="description" content="Ruchita Darur — Software Engineer & MS Computer Science candidate at George Mason University. Backend, full-stack, and AI-integrated systems." />
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(10, 25, 47, 0.85);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 20px 0;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-link {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--accent);
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: var(--nav-height);
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero-subtitle {
-      color: var(--accent);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: 72px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero-description {
-      color: var(--text-secondary);
-      font-size: 20px;
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-
-    /* Sections */
-    section {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      font-size: 32px;
-      margin-bottom: 50px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .section-title::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background-color: var(--text-secondary);
-      opacity: 0.3;
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background-color: var(--bg-secondary);
-      border-radius: 4px;
-      padding: 30px;
-      transition: transform 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .project-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .project-title {
-      color: var(--text-primary);
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    .project-description {
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-
-    .project-tech {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .tech-tag {
-      color: var(--accent);
-      font-size: 14px;
-      font-family: monospace;
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-title {
-      color: var(--accent);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .contact-description {
-      color: var(--text-secondary);
-      margin-bottom: 30px;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background-color: rgba(100, 255, 218, 0.1);
-    }
-
-    /* Social Links */
-    .social-links {
-      position: fixed;
-      bottom: 0;
-      left: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      padding-bottom: 30px;
-    }
-
-    .social-links::after {
-      content: "";
-      width: 1px;
-      height: 100px;
-      background-color: var(--text-secondary);
-    }
-
-    .social-link {
-      color: var(--text-secondary);
-      font-size: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* Email Link */
-    .email-link {
-      position: fixed;
-      bottom: 0;
-      right: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      padding-bottom: 30px;
-    }
-
-    .email-link a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      writing-mode: vertical-rl;
-      font-family: monospace;
-      font-size: 14px;
-      letter-spacing: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .email-link::after {
-      content: "";
-      width: 1px;
-      height: 100px;
-      background-color: var(--text-secondary);
-    }
-
-    .email-link a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 48px;
-      }
-
-      .social-links,
-      .email-link {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  
-  <nav>
-    <div class="container nav-container">
-      <a href="#" class="logo">RD</a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-subtitle">Hi, my name is</p>
-        <h1 class="hero-title">Ruchita Darur</h1>
-        <p class="hero-description">
-          I'm a Computer Science graduate student at George Mason University,
-          specializing in web development, IoT technologies, and machine learning.
-        </p>
-        <a href="#projects" class="btn">Check out my work</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <section id="about">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I am passionate about creating technology that makes a difference. With a strong foundation in
-          both frontend and backend development, I enjoy building full-stack applications that deliver
-          exceptional user experiences while maintaining robust functionality.
-        </p>
-        <p>Here are some technologies I've been working with recently:</p>
-        <ul class="skills-list">
-          <li>JavaScript (ES6+)</li>
-          <li>Python</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>IoT Technologies</li>
-          <li>Machine Learning</li>
-          <li>SQL</li>
-          <li>MongoDB</li>
-          <li>AWS EC2</li>
-          <li>GCD</li>
-          <li>Jenkins</li>
-          <li>CI/CD Pipeline</li>
-          <li>Python (Advanced Database)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Some Things I've Built</h2>
-      <div class="projects-grid">
-        
-        <div class="project-card">
-          <h3 class="project-title">Student Survey Form</h3>
-          <p class="project-description">
-            A containerized web application deployed on Google Kubernetes Engine (GKE) with
-            automated CI/CD pipeline using Jenkins. Features include Docker containerization,
-            Kubernetes orchestration, and automated deployments.
-          </p>
-          <p><strong>Duration:</strong> Jan 2024 - Present</p>
-          <div class="project-tech">
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Kubernetes</span>
-            <span class="tech-tag">Jenkins</span>
-            <span class="tech-tag">GCP</span>
-            <span class="tech-tag">Java</span>
-      </div>
-    </div>
-         <div class="project-card">
-          <h3 class="project-title">Kanban Task Management Board</h3>
-          <p class="project-description">
-            A modern, intuitive Kanban board application built with Next.js and React,
-            featuring drag-and-drop functionality, task prioritization, and deadline management.
-            The application provides a clean interface for organizing tasks across different
-            stages of completion.
-          </p>
-          <p><strong>Duration:</strong> Oct 2024 - Dec 2024</p>
-          <div class="project-tech">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">Tailwind CSS</span>
-            <span class="tech-tag">Framer Motion</span>
-          </div>
-          <div class="project-links" style="margin-top: 20px;">
-            <a
-              href="https://kanban-to-do-list-two.vercel.app/"
-              class="btn"
-              style="margin-right: 10px;"
-              target="_blank"
-            >Live Demo</a>
-            <a
-              href="https://github.com/ruchitadaru20/KanbanToDoList"
-              class="btn"
-              target="_blank"
-            >GitHub</a>
-          </div>
-        </div>
-     
-        <div class="project-card">
-          <h3 class="project-title">Blood Bank Management System</h3>
-          <p class="project-description">
-            A centralized web-based system enhancing blood donation operations with real-time inventory tracking.
-          </p>
-          <p><strong>Duration:</strong> Nov 2021 - Jan 2022</p>
-          <div class="project-tech">
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">JavaScript</span>
-          </div>
-        </div>
-
-     
-        <div class="project-card">
-          <h3 class="project-title">Space Shuttle Simulation</h3>
-          <p class="project-description">
-            A 3D space shuttle simulation featuring detailed animations for launch,
-            flight, and landing with interactive controls.
-          </p>
-          <p><strong>Duration:</strong> May 2022 - Jul 2022</p>
-          <div class="project-tech">
-            <span class="tech-tag">OpenGL</span>
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">3D Graphics</span>
-          </div>
-        </div>
-
-        
-        <div class="project-card">
-          <h3 class="project-title">Automatic Weed Detection and Cutting Using Machine Learning Applications and IoT</h3>
-          <p class="project-description">
-            An IoT-based agricultural solution using machine learning for real-time weed detection
-            and autonomous cutting, enhancing efficiency and minimizing herbicide use.
-          </p>
-          <p><strong>Duration:</strong> Oct 2022 - May 2023</p>
-          <div class="project-tech">
-            <span class="tech-tag">Machine Learning</span>
-            <span class="tech-tag">IoT</span>
-            <span class="tech-tag">Python</span>
-          </div>
-        </div>
-
-    
-        <div class="project-card">
-          <h3 class="project-title">Attendance App</h3>
-          <p class="project-description">
-            Designed an intuitive mobile application for seamless attendance tracking, reducing reliance on manual sign-in processes.
-            Enhanced accuracy by eliminating manual input errors and incorporating objective verification mechanisms.
-            Synchronized the app with existing classroom management systems for smooth data integration.
-          </p>
-          <p><strong>Duration:</strong> Feb 2022 - May 2022</p>
-          <div class="project-tech">
-            <span class="tech-tag">Mobile App Development</span>
-            <span class="tech-tag">Flutter</span>
-            <span class="tech-tag">Firebase</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
- 
-  <section id="contact">
-    <div class="container">
-      <div class="contact">
-        <p class="contact-title">What's Next?</p>
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-description">
-          I'm currently looking for new opportunities. Whether you have a question
-          or just want to say hi, I'll try my best to get back to you!
-        </p>
-        <a href="mailto:ruchitadarur@gmail.com" class="btn">Say Hello</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <div class="social-links">
-    <a
-      href="https://github.com/ruchitadarur20"
-      class="social-link"
-      target="_blank"
-    >
-      <i class="fab fa-github"></i>
-    </a>
-    <a
-      href="https://www.linkedin.com/in/ruchita-darur-8594621a2/"
-      class="social-link"
-      target="_blank"
-    >
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
-
- 
-  <div class="email-link">
-    <a href="mailto:ruchitadarur@gmail.com">ruchitadarur@gmail.com</a>
-  </div>
-</body>
-</html>
--->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ruchita Darur | Portfolio</title>
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -549,16 +20,12 @@
       --text: rgba(245,247,255,.92);
       --muted: rgba(245,247,255,.62);
       --muted2: rgba(245,247,255,.45);
-
       --a1:#35d6ff;
       --a2:#8a5cff;
-
       --shadow: 0 28px 90px rgba(0,0,0,.55);
       --radius: 18px;
-
       --max: 1200px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
@@ -568,8 +35,6 @@
       overflow-x:hidden;
       line-height: 1.6;
     }
-
-    /* ===== Background (glow + vignette) ===== */
     .bg{
       position:fixed; inset:0; z-index:-3;
       background:
@@ -583,193 +48,69 @@
       background: radial-gradient(circle at 50% 35%, transparent 35%, rgba(0,0,0,.55) 100%);
       opacity:.55;
     }
-
-    .container{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    /* ===== Top centered nav (pill) ===== */
-    header{
-      position:fixed;
-      top: 18px;
-      left: 0; right: 0;
-      z-index: 50;
-    }
+    .container{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+    header{ position:fixed; top: 18px; left: 0; right: 0; z-index: 50; }
     .nav-wrap{ display:flex; justify-content:center; }
     .nav-pill{
       width:min(980px, calc(100% - 24px));
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 18px;
+      display:flex; align-items:center; justify-content:space-between; gap: 18px;
       padding: 14px 18px;
-
       background: rgba(10,16,34,.55);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 999px;
       box-shadow: 0 18px 70px rgba(0,0,0,.35);
     }
-    .brand{
-      display:flex; align-items:center; gap: 12px;
-      padding-left: 6px;
-      min-width: 210px;
-    }
+    .brand{ display:flex; align-items:center; gap: 12px; padding-left: 6px; min-width: 210px; }
     .brand-badge{
-      width: 44px; height: 44px;
-      border-radius: 14px;
+      width: 44px; height: 44px; border-radius: 14px;
       display:grid; place-items:center;
-      font-weight: 900;
-      letter-spacing:-.02em;
-      color: var(--text);
-
+      font-weight: 900; letter-spacing:-.02em; color: var(--text);
       background: linear-gradient(135deg, rgba(53,214,255,.20), rgba(138,92,255,.18));
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: 0 18px 50px rgba(0,0,0,.35);
     }
-    .brand small{
-      display:block;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-    }
-    .brand b{
-      display:block;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing:-.01em;
-      line-height: 1.2;
-    }
-
+    .brand small{ display:block; color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing:.08em; text-transform: uppercase; }
+    .brand b{ display:block; font-size: 14px; font-weight: 800; letter-spacing:-.01em; line-height: 1.2; }
     .nav-links{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      justify-content:center;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.06);
+      display:flex; gap: 10px; flex-wrap:wrap; justify-content:center;
+      padding: 6px; border-radius: 999px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06);
       max-width: 100%;
     }
     .nav-links a{
-      text-decoration:none;
-      color: rgba(245,247,255,.70);
-      font-weight: 800;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: .18s ease;
-      position:relative;
-      white-space:nowrap;
+      text-decoration:none; color: rgba(245,247,255,.70); font-weight: 800; font-size: 13px;
+      padding: 10px 14px; border-radius: 999px; transition: .18s ease; position:relative; white-space:nowrap;
     }
-    .nav-links a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-    }
+    .nav-links a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
     .nav-links a.active{
       color: var(--text);
       background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: 0 16px 45px rgba(53,214,255,.12);
     }
-
-    /* ===== Hero ===== */
-    main.hero{
-      min-height: 100vh;
-      display:flex;
-      align-items:center;
-      padding-top: 130px;
-      padding-bottom: 70px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items:center;
-    }
-
+    main.hero{ min-height: 100vh; display:flex; align-items:center; padding-top: 130px; padding-bottom: 70px; }
+    .hero-grid{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 34px; align-items:center; }
     .kicker{
-      color: rgba(245,247,255,.65);
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      display:flex; gap: 12px; align-items:center;
-      margin-bottom: 14px;
+      color: rgba(245,247,255,.65); font-weight: 800; font-size: 12px; letter-spacing: .28em;
+      text-transform: uppercase; display:flex; gap: 12px; align-items:center; margin-bottom: 14px;
     }
-    .kicker .line{
-      height: 2px; width: 40px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--a1), var(--a2));
-      opacity:.85;
-    }
-
-    .role{
-      color: rgba(53,214,255,.88);
-      font-weight: 900;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .name{
-      font-size: clamp(44px, 6vw, 86px);
-      line-height: .95;
-      letter-spacing: -.05em;
-      font-weight: 900;
-      margin: 6px 0 12px;
-    }
+    .kicker .line{ height: 2px; width: 40px; border-radius: 999px; background: linear-gradient(90deg, var(--a1), var(--a2)); opacity:.85; }
+    .role{ color: rgba(53,214,255,.88); font-weight: 900; letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
+    .name{ font-size: clamp(44px, 6vw, 86px); line-height: .95; letter-spacing: -.05em; font-weight: 900; margin: 6px 0 12px; }
     .name .last{
       background: linear-gradient(90deg, rgba(53,214,255,.98), rgba(138,92,255,.92));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-      display:inline-block;
+      -webkit-background-clip:text; background-clip:text; color: transparent; display:inline-block;
     }
-
-    .lead{
-      color: rgba(245,247,255,.72);
-      max-width: 720px;
-      font-size: 15px;
-    }
-    .quote{
-      margin-top: 12px;
-      color: rgba(245,247,255,.70);
-      font-style: italic;
-      font-size: 15px;
-      max-width: 720px;
-    }
-
-    .cta-row{
-      margin-top: 22px;
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
+    .lead{ color: rgba(245,247,255,.72); max-width: 720px; font-size: 15px; }
+    .quote{ margin-top: 12px; color: rgba(245,247,255,.70); font-style: italic; font-size: 15px; max-width: 720px; }
+    .cta-row{ margin-top: 22px; display:flex; gap: 12px; flex-wrap:wrap; align-items:center; }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 13px 16px;
-      border-radius: 14px;
-      text-decoration:none;
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing:.02em;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
+      display:inline-flex; align-items:center; gap: 10px; padding: 13px 16px; border-radius: 14px;
+      text-decoration:none; font-weight: 900; font-size: 13px; letter-spacing:.02em;
+      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: var(--text);
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border .18s ease;
-      box-shadow: 0 18px 70px rgba(0,0,0,.25);
-      user-select:none;
+      box-shadow: 0 18px 70px rgba(0,0,0,.25); user-select:none;
     }
     .btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
     .btn.primary{
@@ -777,215 +118,84 @@
       border: 1px solid rgba(255,255,255,.14);
       box-shadow: 0 22px 70px rgba(53,214,255,.12);
     }
-    .btn .ic{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      display:grid; place-items:center;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-    }
-
-    /* ===== Right-side “glass info panel” (no image) ===== */
+    .btn .ic{ width: 34px; height: 34px; border-radius: 12px; display:grid; place-items:center; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); }
     .info-panel{
-      border-radius: 26px;
-      padding: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position: relative;
+      border-radius: 26px; padding: 18px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow); overflow:hidden; position: relative;
     }
     .info-panel::before{
-      content:"";
-      position:absolute; inset:-2px;
+      content:""; position:absolute; inset:-2px;
       background:
         radial-gradient(700px 260px at 20% 0%, rgba(53,214,255,.22), transparent 55%),
         radial-gradient(700px 260px at 85% 10%, rgba(138,92,255,.18), transparent 55%);
-      opacity: .65;
-      pointer-events:none;
+      opacity: .65; pointer-events:none;
     }
     .info-panel > *{ position: relative; z-index: 1; }
-    .info-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
+    .info-title{ display:flex; align-items:center; justify-content:space-between; gap: 12px; margin-bottom: 12px; }
     .pill{
-      font-size: 12px;
-      font-weight: 900;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(245,247,255,.72);
-      white-space:nowrap;
+      font-size: 12px; font-weight: 900; padding: 10px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10);
+      color: rgba(245,247,255,.72); white-space:nowrap;
     }
-    .stat{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 18px;
-      padding: 14px;
-      margin-bottom: 12px;
-    }
+    .stat{ background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10); border-radius: 18px; padding: 14px; margin-bottom: 12px; }
     .stat b{ display:block; font-weight: 900; letter-spacing:-.01em; }
     .stat span{ display:block; margin-top: 4px; color: var(--muted); font-size: 13px; }
-
-    .mini-links{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
+    .mini-links{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
     .mini-links a{
-      color: rgba(245,247,255,.78);
-      text-decoration:none;
-      font-weight: 900;
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      transition: .18s ease;
+      color: rgba(245,247,255,.78); text-decoration:none; font-weight: 900; font-size: 13px;
+      padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05); transition: .18s ease;
     }
     .mini-links a:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.16); }
-
-    /* Scroll down arrow */
     .scroll-down{
-      position:absolute;
-      left: 50%;
-      bottom: 26px;
-      transform: translateX(-50%);
-      color: rgba(245,247,255,.55);
-      font-size: 22px;
-      text-decoration:none;
-      transition:.18s ease;
-      opacity:.85;
+      position:absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+      color: rgba(245,247,255,.55); font-size: 22px; text-decoration:none; transition:.18s ease; opacity:.85;
     }
     .scroll-down:hover{ color: rgba(53,214,255,.85); transform: translateX(-50%) translateY(2px); }
-
-    /* ===== Sections ===== */
     section{ padding: 90px 0; }
-    .section-title{
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: -.02em;
-      margin-bottom: 10px;
-    }
-    .section-sub{
-      color: var(--muted);
-      max-width: 980px;
-    }
-
-    /* Cards grid */
-    .cards{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
+    .section-title{ font-size: 24px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 10px; }
+    .section-sub{ color: var(--muted); max-width: 980px; }
+    .cards{ margin-top: 22px; display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
     .card{
-      grid-column: span 6;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 20px 70px rgba(0,0,0,.22);
-      transition: .18s ease;
-      position:relative;
-      overflow:hidden;
+      grid-column: span 6; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius); padding: 18px; box-shadow: 0 20px 70px rgba(0,0,0,.22);
+      transition: .18s ease; position:relative; overflow:hidden;
     }
-    .card:hover{
-      transform: translateY(-6px);
-      background: rgba(255,255,255,.07);
-      border-color: rgba(255,255,255,.16);
-    }
+    .card:hover{ transform: translateY(-6px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
     .card h3{ font-size: 16px; font-weight: 900; margin-bottom: 8px; letter-spacing:-.01em; }
     .card p{ color: var(--muted); font-size: 13px; }
-    .meta{
-      display:flex; gap: 10px; flex-wrap: wrap;
-      margin: 10px 0 0;
-      color: var(--muted2);
-      font-size: 12px;
-      font-weight: 800;
-    }
+    .meta{ display:flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 0; color: var(--muted2); font-size: 12px; font-weight: 800; }
     .tags{ margin-top: 12px; display:flex; flex-wrap:wrap; gap: 8px; }
     .tag{
-      font-size: 12px;
-      font-weight: 900;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(245,247,255,.82);
-      white-space: nowrap;
+      font-size: 12px; font-weight: 900; padding: 8px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10);
+      color: rgba(245,247,255,.82); white-space: nowrap;
     }
-    .links{
-      margin-top: 12px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-    .links a{
-      text-decoration:none;
-      font-weight: 900;
-      font-size: 13px;
-      color: rgba(53,214,255,.95);
-    }
+    .links{ margin-top: 12px; display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
+    .links a{ text-decoration:none; font-weight: 900; font-size: 13px; color: rgba(53,214,255,.95); }
     .links span{ color: rgba(255,255,255,.25); }
-
-    /* Contact panel */
     .contact-panel{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 26px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      text-align:center;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 26px;
+      padding: 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; text-align:center;
     }
     .contact-panel::before{
-      content:"";
-      position:absolute; inset:-2px;
+      content:""; position:absolute; inset:-2px;
       background:
         radial-gradient(800px 260px at 20% 0%, rgba(53,214,255,.18), transparent 60%),
         radial-gradient(800px 260px at 85% 10%, rgba(138,92,255,.16), transparent 60%);
-      opacity: .70;
-      pointer-events:none;
+      opacity: .70; pointer-events:none;
     }
     .contact-panel > *{ position: relative; z-index: 1; }
-    .contact-kicker{
-      color: rgba(53,214,255,.88);
-      font-weight: 900;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    footer{
-      padding: 28px 0 40px;
-      color: rgba(245,247,255,.45);
-      font-size: 13px;
-      text-align:center;
-    }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; gap: 18px; }
-      .info-panel{ max-width: 720px; margin: 0 auto; }
-    }
+    .contact-kicker{ color: rgba(53,214,255,.88); font-weight: 900; letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
+    footer{ padding: 28px 0 40px; color: rgba(245,247,255,.45); font-size: 13px; text-align:center; }
+    @media (max-width: 980px){ .hero-grid{ grid-template-columns: 1fr; gap: 18px; } .info-panel{ max-width: 720px; margin: 0 auto; } }
     @media (max-width: 760px){
-      header{ top: 10px; }
-      .brand small{ display:none; }
+      header{ top: 10px; } .brand small{ display:none; }
       .nav-pill{ padding: 10px 12px; border-radius: 22px; }
       .nav-links{ width: 100%; justify-content: flex-start; overflow:auto; scrollbar-width:none; }
       .nav-links::-webkit-scrollbar{ display:none; }
-      .card{ grid-column: span 12; }
-      section{ padding: 76px 0; }
+      .card{ grid-column: span 12; } section{ padding: 76px 0; }
     }
   </style>
 </head>
@@ -994,18 +204,13 @@
   <div class="bg"></div>
   <div class="vignette"></div>
 
-  <!-- NAV -->
   <header>
     <div class="nav-wrap container">
       <div class="nav-pill">
         <div class="brand">
           <div class="brand-badge">RD</div>
-          <div>
-            <small>Portfolio</small>
-            <b>Ruchita Darur</b>
-          </div>
+          <div><small>Portfolio</small><b>Ruchita Darur</b></div>
         </div>
-
         <nav class="nav-links" aria-label="Primary">
           <a href="#home" class="active">Home</a>
           <a href="#about">About</a>
@@ -1018,86 +223,35 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="home" class="hero">
     <div class="container" style="position:relative;">
       <div class="hero-grid">
         <div>
-          <div class="kicker">
-            <span class="line"></span>
-            <span>Digital Systems • Cloud • Scalable Backend</span>
-          </div>
-
+          <div class="kicker"><span class="line"></span><span>Digital Systems • Cloud • Scalable Backend</span></div>
           <div class="role">SOFTWARE ENGINEER • BACKEND • CLOUD SYSTEMS</div>
-
-          <div class="name">
-            Ruchita<br/>
-            <span class="last">Darur</span>
-          </div>
-
+          <div class="name">Ruchita<br/><span class="last">Darur</span></div>
           <p class="lead">
             Software Engineer and M.S. Computer Science candidate with experience in backend development,
             cloud-based systems, and data-driven applications. I build scalable REST APIs, work with relational
             databases, and deploy production services using AWS and Docker.
           </p>
-
-          <p class="quote">
-            “Build with intention, test with care, and deploy with confidence.”
-          </p>
-
+          <p class="quote">"Build with intention, test with care, and deploy with confidence."</p>
           <div class="cta-row">
-            <a class="btn primary" href="#projects">
-              <span class="ic"><i class="fa-solid fa-diagram-project"></i></span>
-              Explore Projects
-            </a>
-
-            <a class="btn" href="mailto:ruchitadarur@gmail.com">
-              <span class="ic"><i class="fa-solid fa-envelope"></i></span>
-              Contact Me
-            </a>
-
-            <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
-              <span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>
-              LinkedIn
-            </a>
-
-            <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
-              <span class="ic"><i class="fa-brands fa-github"></i></span>
-              GitHub
-            </a>
-
-            <!-- OPTIONAL: If you upload resume.pdf to your repo root, uncomment this -->
-            <!--
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
-              <span class="ic"><i class="fa-solid fa-file-arrow-down"></i></span>
-              Resume
-            </a>
-            -->
+            <a class="btn primary" href="#projects"><span class="ic"><i class="fa-solid fa-diagram-project"></i></span>Explore Projects</a>
+            <a class="btn" href="mailto:ruchitadarur@gmail.com"><span class="ic"><i class="fa-solid fa-envelope"></i></span>Contact Me</a>
+            <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>LinkedIn</a>
+            <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-github"></i></span>GitHub</a>
           </div>
         </div>
 
-        <!-- No picture: premium “what I do” panel -->
         <aside class="info-panel" aria-label="Profile summary panel">
           <div class="info-title">
             <div class="pill"><i class="fa-solid fa-sparkles"></i> Key Highlights</div>
             <div class="pill"><i class="fa-solid fa-location-dot"></i> Fairfax, VA</div>
           </div>
-
-          <div class="stat">
-            <b>What I build</b>
-            <span>Production-ready backend platforms, cloud deployments, and data-driven systems.</span>
-          </div>
-
-          <div class="stat">
-            <b>Core strengths</b>
-            <span>REST APIs • Databases • Distributed systems fundamentals • Debugging & performance.</span>
-          </div>
-
-          <div class="stat" style="margin-bottom:0;">
-            <b>Open to roles</b>
-            <span>Backend / Full-Stack Software Engineer (Full-time priority internship backup).</span>
-          </div>
-
+          <div class="stat"><b>What I build</b><span>Production-ready backend platforms, cloud deployments, and data-driven systems.</span></div>
+          <div class="stat"><b>Core strengths</b><span>REST APIs • Databases • Distributed systems fundamentals • Debugging & performance.</span></div>
+          <div class="stat" style="margin-bottom:0;"><b>Open to roles</b><span>Backend / Full-Stack Software Engineer (Full-time priority, internship backup).</span></div>
           <div class="mini-links" aria-label="Quick links">
             <a href="mailto:ruchitadarur@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
             <a href="tel:+15715876051"><i class="fa-solid fa-phone"></i> Call</a>
@@ -1105,302 +259,203 @@
           </div>
         </aside>
       </div>
-
-      <a class="scroll-down" href="#about" aria-label="Scroll down">
-        <i class="fa-solid fa-arrow-down"></i>
-      </a>
+      <a class="scroll-down" href="#about" aria-label="Scroll down"><i class="fa-solid fa-arrow-down"></i></a>
     </div>
   </main>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="section-title">About</div>
       <p class="section-sub">
-        Designed and developed a modern, interactive portfolio reflecting my journey as a Technology Architect & Full-Stack Developer.
+        Designed and developed a modern, interactive portfolio reflecting my journey as a Full-Stack Developer.
         It showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.
       </p>
-
       <div class="cards">
         <div class="card">
           <h3>💥 Key Highlights</h3>
           <p>Clean and futuristic UI with smooth animations, fully responsive design, and interactive sections for skills, projects, and achievements.</p>
-          <div class="tags">
-            <span class="tag">Futuristic UI</span>
-            <span class="tag">Responsive</span>
-            <span class="tag">Interactive</span>
-            <span class="tag">Smooth Animations</span>
-          </div>
+          <div class="tags"><span class="tag">Futuristic UI</span><span class="tag">Responsive</span><span class="tag">Interactive</span><span class="tag">Smooth Animations</span></div>
         </div>
-
         <div class="card">
           <h3>🔧 Tech Stack Used</h3>
           <p>Tailwind CSS for scalable styling, GSAP for high-performance animations, JavaScript & React for dynamic components.</p>
-          <div class="tags">
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">GSAP</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">React</span>
-          </div>
+          <div class="tags"><span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <div class="section-title">Skills</div>
       <p class="section-sub">A quick snapshot of what I work with most:</p>
-
       <div class="cards">
-        <div class="card">
-          <h3>Languages</h3>
-          <p>Python, SQL, C++</p>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">C++</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Backend & Systems</h3>
-          <p>REST APIs, Microservices, Distributed Systems, Asynchronous Processing, System Design</p>
-          <div class="tags">
-            <span class="tag">REST</span><span class="tag">Microservices</span><span class="tag">Distributed</span><span class="tag">Async</span><span class="tag">System Design</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Databases</h3>
-          <p>PostgreSQL, MySQL, Data Modeling, SQL Optimization</p>
-          <div class="tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">Optimization</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Cloud & DevOps</h3>
-          <p>AWS (EC2, RDS, S3), Docker, CI/CD, Linux, Jenkins</p>
-          <div class="tags">
-            <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Linux</span><span class="tag">Jenkins</span>
-          </div>
-        </div>
+        <div class="card"><h3>Languages</h3><p>Python, SQL, C++</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">C++</span></div></div>
+        <div class="card"><h3>Backend & Systems</h3><p>REST APIs, Microservices, Distributed Systems, Asynchronous Processing, System Design</p><div class="tags"><span class="tag">REST</span><span class="tag">Microservices</span><span class="tag">Distributed</span><span class="tag">Async</span><span class="tag">System Design</span></div></div>
+        <div class="card"><h3>Databases</h3><p>PostgreSQL, MySQL, Data Modeling, SQL Optimization</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">Optimization</span></div></div>
+        <div class="card"><h3>Cloud & DevOps</h3><p>AWS (EC2, RDS, S3), Docker, CI/CD, Linux, Jenkins</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Linux</span><span class="tag">Jenkins</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <div class="section-title">Projects</div>
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">Projects</div>
+      <p class="section-sub" style="margin-bottom: 12px;">Personal Projects</p>
+      <div class="cards" style="margin-bottom: 48px;">
 
-    <p class="section-sub" style="margin-bottom: 12px;">Personal Projects</p>
-    <div class="cards" style="margin-bottom: 48px;">
-
-      <div class="card">
-        <h3>TaskFlow — Full-Stack Task Management API</h3>
-        <p>Built a production-grade task and project management platform from scratch. Designed and implemented a RESTful FastAPI backend with JWT authentication, PostgreSQL database, real-time WebSocket notifications, background jobs via Celery + Redis, and a React + TypeScript frontend with live activity feeds, due date tracking, and role-based access.</p>
-        <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
-        <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
-          <li>JWT auth with access + refresh token rotation</li>
-          <li>Real-time notifications via WebSockets</li>
-          <li>Background email jobs with Celery + Redis</li>
-          <li>Full CI/CD pipeline with GitHub Actions</li>
-          <li>Deployed on Render + Vercel + Neon (PostgreSQL)</li>
-        </ul>
-        <div class="meta"><span>Apr 2026</span></div>
-        <div class="tags">
-          <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span><span class="tag">WebSockets</span>
+        <div class="card">
+          <h3>TaskFlow — Full-Stack Task Management API</h3>
+          <p>Built a production-grade task and project management platform from scratch. Designed and implemented a RESTful FastAPI backend with JWT authentication, PostgreSQL database, real-time WebSocket notifications, background jobs via Celery + Redis, and a React + TypeScript frontend with live activity feeds, due date tracking, and role-based access.</p>
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>JWT auth with access + refresh token rotation</li>
+            <li>Real-time notifications via WebSockets</li>
+            <li>Background email jobs with Celery + Redis</li>
+            <li>Full CI/CD pipeline with GitHub Actions</li>
+            <li>Deployed on Render + Vercel + Neon (PostgreSQL)</li>
+          </ul>
+          <div class="meta"><span>Feb 2026 – Present</span></div>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span><span class="tag">Docker</span><span class="tag">WebSockets</span></div>
+          <div class="links"><a href="https://taskflow-1o0cll5tv-ruchita-darurs-projects.vercel.app" target="_blank" rel="noopener">Live</a><span>•</span><a href="https://github.com/ruchitadarur20/taskflow-api" target="_blank" rel="noopener">GitHub</a></div>
         </div>
-        <div class="links">
-          <a href="https://taskflow-1o0cll5tv-ruchita-darurs-projects.vercel.app" target="_blank" rel="noopener">Live</a>
-          <span>•</span>
-          <a href="https://github.com/ruchitadarur20/taskflow-api" target="_blank" rel="noopener">GitHub</a>
+
+        <div class="card">
+          <h3>Personal Portfolio – Full-Stack Developer</h3>
+          <p>Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.</p>
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>Clean and futuristic UI with smooth animations</li>
+            <li>Fully responsive design across all devices</li>
+            <li>Interactive sections for skills, projects, and achievements</li>
+            <li>Professional contact section for seamless collaboration</li>
+          </ul>
+          <div class="tags"><span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">UI/UX</span></div>
+          <div class="links"><a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Kanban Task Management Board</h3>
+          <p>Modern Kanban board built with Next.js and React featuring drag-and-drop, task prioritization, and deadline management.</p>
+          <div class="meta"><span>Oct 2024 – Dec 2024</span></div>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span></div>
+          <div class="links"><a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a><span>•</span><a href="https://github.com/ruchitadarur20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+
+        <!-- FLAG: Unverified, never appeared in any resume this conversation. Confirm real + confirm ~60% figure before keeping live. -->
+        <div class="card">
+          <h3>Academic Data Analytics System</h3>
+          <p>Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.</p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span></div>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Personal Portfolio – Technology Architect & Full-Stack Developer</h3>
-        <p>Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.</p>
-        <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
-        <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
-          <li>Clean and futuristic UI with smooth animations</li>
-          <li>Fully responsive design across all devices</li>
-          <li>Interactive sections for skills, projects, and achievements</li>
-          <li>Professional contact section for seamless collaboration</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">UI/UX</span>
-        </div>
-        <div class="links">
-          <a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a>
-        </div>
-      </div>
+      <p class="section-sub" style="margin-bottom: 12px;">Academic Projects</p>
+      <div class="cards">
 
-      <div class="card">
-        <h3>Kanban Task Management Board</h3>
-        <p>Modern Kanban board built with Next.js and React featuring drag-and-drop, task prioritization, and deadline management.</p>
-        <div class="meta"><span>Oct 2024 – Dec 2024</span></div>
-        <div class="tags">
-          <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span>
+        <!-- FLAG: Possibly the same project as "Student Survey Form" below, described two different ways with different stacks. Confirm if one project or two. -->
+        <div class="card">
+          <h3>Scalable Cloud-Based Student Feedback System</h3>
+          <p>Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.</p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Jan 2025 – May 2025</span></div>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS EC2</span><span class="tag">Docker</span></div>
         </div>
-        <div class="links">
-          <a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a>
-          <span>•</span>
-          <a href="https://github.com/ruchitadaru20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
 
-      <div class="card">
-        <h3>Academic Data Analytics System</h3>
-        <p>Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.</p>
-        <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
-        <div class="tags">
-          <span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span>
+        <div class="card">
+          <h3>Student Survey Form</h3>
+          <p>Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins. Includes Docker containerization, Kubernetes orchestration, and automated deployments.</p>
+          <div class="meta"><span>Jan 2025 – May 2025</span></div>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span></div>
         </div>
-      </div>
 
+        <div class="card">
+          <h3>Blood Bank Management System</h3>
+          <p>Centralized web-based system enhancing blood donation operations with real-time inventory tracking.</p>
+          <div class="meta"><span>Nov 2021 – Jan 2022</span></div>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Space Shuttle Simulation</h3>
+          <p>3D space shuttle simulation featuring detailed animations for launch, flight, and landing with interactive controls.</p>
+          <div class="meta"><span>May 2022 – Jul 2022</span></div>
+          <div class="tags"><span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">3D Graphics</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Automatic Weed Detection and Cutting (ML + IoT)</h3>
+          <p>IoT-based agricultural solution using machine learning for real-time weed detection and autonomous cutting, enhancing efficiency and minimizing herbicide use.</p>
+          <div class="meta"><span>Oct 2022 – May 2023</span></div>
+          <div class="tags"><span class="tag">Machine Learning</span><span class="tag">IoT</span><span class="tag">Python</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Attendance App</h3>
+          <p>Designed a mobile app for attendance tracking, reducing manual errors and improving classroom workflow integration.</p>
+          <div class="meta"><span>Feb 2022 – May 2022</span></div>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Mobile</span></div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <p class="section-sub" style="margin-bottom: 12px;">Academic Projects</p>
-    <div class="cards">
-
-      <div class="card">
-        <h3>Scalable Cloud-Based Student Feedback System</h3>
-        <p>Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.</p>
-        <div class="meta"><span>George Mason University</span><span>•</span><span>Jan 2025 – May 2025</span></div>
-        <div class="tags">
-          <span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS EC2</span><span class="tag">Docker</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Student Survey Form</h3>
-        <p>Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins. Includes Docker containerization, Kubernetes orchestration, and automated deployments.</p>
-        <div class="meta"><span>Jan 2024 – Present</span></div>
-        <div class="tags">
-          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Blood Bank Management System</h3>
-        <p>Centralized web-based system enhancing blood donation operations with real-time inventory tracking.</p>
-        <div class="meta"><span>Nov 2021 – Jan 2022</span></div>
-        <div class="tags">
-          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Space Shuttle Simulation</h3>
-        <p>3D space shuttle simulation featuring detailed animations for launch, flight, and landing with interactive controls.</p>
-        <div class="meta"><span>May 2022 – Jul 2022</span></div>
-        <div class="tags">
-          <span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">3D Graphics</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Automatic Weed Detection and Cutting (ML + IoT)</h3>
-        <p>IoT-based agricultural solution using machine learning for real-time weed detection and autonomous cutting, enhancing efficiency and minimizing herbicide use.</p>
-        <div class="meta"><span>Oct 2022 – May 2023</span></div>
-        <div class="tags">
-          <span class="tag">Machine Learning</span><span class="tag">IoT</span><span class="tag">Python</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Attendance App</h3>
-        <p>Designed a mobile app for attendance tracking, reducing manual errors and improving classroom workflow integration.</p>
-        <div class="meta"><span>Feb 2022 – May 2022</span></div>
-        <div class="tags">
-          <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Mobile</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
       <div class="section-title">Experience</div>
       <p class="section-sub">Industry + research experience focused on scalable systems, evaluation, and backend engineering.</p>
-
       <div class="cards">
         <div class="card">
           <h3>GenAI Systems Benchmarking & Technology Evaluation</h3>
           <p>
-            Conduct research-driven evaluation of frontier AI systems (GPT, Gemini, Grok) for real-world deployment readiness.
+            Conducted research-driven evaluation of frontier AI systems (GPT, Gemini, Grok) for real-world deployment readiness.
             Designed benchmarking methods measuring latency, TTFT, reasoning consistency, and reliability under stress conditions,
             and translated experimental insights into technology recommendations.
           </p>
-          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2025 – Present</span></div>
-          <div class="tags">
-            <span class="tag">Benchmarking</span><span class="tag">Metrics</span><span class="tag">Reliability</span><span class="tag">Evaluation</span>
-          </div>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Jul 2025 – Dec 2025</span></div>
+          <div class="tags"><span class="tag">Benchmarking</span><span class="tag">Metrics</span><span class="tag">Reliability</span><span class="tag">Evaluation</span></div>
         </div>
 
         <div class="card">
-          <h3>Backend Developer – Artallur Technologies</h3>
+          <h3>Software Engineer Intern – Artallur Technologies</h3>
           <p>
             Developed backend services and REST APIs for internal and client-facing applications. Designed and optimized PostgreSQL
             schemas and queries, deployed and tested on AWS infrastructure, and contributed to debugging and performance improvements
             using Git-based workflows and clear technical communication.
           </p>
-          <div class="meta"><span>Aug 2022 – Oct 2022</span></div>
-          <div class="tags">
-            <span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">Backend</span><span class="tag">Debugging</span>
-          </div>
+          <div class="meta"><span>May 2022 – Nov 2022</span></div>
+          <div class="tags"><span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">Backend</span><span class="tag">Debugging</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="contact-panel">
-        <div class="contact-kicker">What’s Next?</div>
+        <div class="contact-kicker">What's Next?</div>
         <div class="section-title" style="margin-bottom:8px;">Get In Touch</div>
         <p class="section-sub" style="margin: 0 auto 16px; max-width: 860px;">
-          I’m currently looking for new opportunities. Whether you have a question or want to collaborate,
-          I’ll try my best to get back to you quickly.
+          I'm currently looking for new opportunities. Whether you have a question or want to collaborate,
+          I'll try my best to get back to you quickly.
         </p>
-
         <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
-          <a class="btn primary" href="mailto:ruchitadarur@gmail.com">
-            <span class="ic"><i class="fa-solid fa-paper-plane"></i></span>
-            Say Hello
-          </a>
-          <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener">
-            <span class="ic"><i class="fa-brands fa-github"></i></span>
-            GitHub
-          </a>
-          <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener">
-            <span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>
-            LinkedIn
-          </a>
+          <a class="btn primary" href="mailto:ruchitadarur@gmail.com"><span class="ic"><i class="fa-solid fa-paper-plane"></i></span>Say Hello</a>
+          <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-github"></i></span>GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/ruchita-darur-8594621a2/" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-linkedin-in"></i></span>LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    © <span id="y"></span> Ruchita Darur • Built with intention.
-  </footer>
+  <footer>© <span id="y"></span> Ruchita Darur • Built with intention.</footer>
 
   <script>
-    // footer year
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Active nav link based on scroll
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
     const ids = navLinks.map(a => a.getAttribute("href")).filter(h => h && h.startsWith("#"));
     const sections = ids.map(id => document.querySelector(id)).filter(Boolean);
-
     const setActive = () => {
       let current = "#home";
       for (const sec of sections) {
@@ -1409,10 +464,8 @@
       }
       navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === current));
     };
-
     window.addEventListener("scroll", setActive, { passive: true });
     window.addEventListener("load", setActive);
   </script>
 </body>
 </html>
-
