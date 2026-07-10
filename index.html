@@ -13,190 +13,78 @@
 
   <style>
     :root{
-      --bg:#050b18;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.12);
-      --text: rgba(245,247,255,.92);
-      --muted: rgba(245,247,255,.62);
-      --muted2: rgba(245,247,255,.45);
-      --a1:#35d6ff;
-      --a2:#8a5cff;
-      --shadow: 0 28px 90px rgba(0,0,0,.55);
-      --radius: 18px;
-      --max: 1200px;
+      --bg:#050b18; --panel: rgba(255,255,255,.06); --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.12); --text: rgba(245,247,255,.92);
+      --muted: rgba(245,247,255,.62); --muted2: rgba(245,247,255,.45);
+      --a1:#35d6ff; --a2:#8a5cff; --shadow: 0 28px 90px rgba(0,0,0,.55);
+      --radius: 18px; --max: 1200px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x:hidden;
-      line-height: 1.6;
-    }
-    .bg{
-      position:fixed; inset:0; z-index:-3;
-      background:
-        radial-gradient(1200px 700px at 15% 15%, rgba(53,214,255,.18), transparent 60%),
-        radial-gradient(1100px 650px at 85% 30%, rgba(138,92,255,.16), transparent 55%),
-        radial-gradient(900px 600px at 50% 85%, rgba(53,214,255,.10), transparent 60%),
-        linear-gradient(180deg, #050b18 0%, #050a17 45%, #040814 100%);
-    }
-    .vignette{
-      position:fixed; inset:-2px; z-index:-2; pointer-events:none;
-      background: radial-gradient(circle at 50% 35%, transparent 35%, rgba(0,0,0,.55) 100%);
-      opacity:.55;
-    }
+    body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); overflow-x:hidden; line-height: 1.6; }
+    .bg{ position:fixed; inset:0; z-index:-3; background: radial-gradient(1200px 700px at 15% 15%, rgba(53,214,255,.18), transparent 60%), radial-gradient(1100px 650px at 85% 30%, rgba(138,92,255,.16), transparent 55%), radial-gradient(900px 600px at 50% 85%, rgba(53,214,255,.10), transparent 60%), linear-gradient(180deg, #050b18 0%, #050a17 45%, #040814 100%); }
+    .vignette{ position:fixed; inset:-2px; z-index:-2; pointer-events:none; background: radial-gradient(circle at 50% 35%, transparent 35%, rgba(0,0,0,.55) 100%); opacity:.55; }
     .container{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
     header{ position:fixed; top: 18px; left: 0; right: 0; z-index: 50; }
     .nav-wrap{ display:flex; justify-content:center; }
-    .nav-pill{
-      width:min(980px, calc(100% - 24px));
-      display:flex; align-items:center; justify-content:space-between; gap: 18px;
-      padding: 14px 18px;
-      background: rgba(10,16,34,.55);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 999px;
-      box-shadow: 0 18px 70px rgba(0,0,0,.35);
-    }
+    .nav-pill{ width:min(980px, calc(100% - 24px)); display:flex; align-items:center; justify-content:space-between; gap: 18px; padding: 14px 18px; background: rgba(10,16,34,.55); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.08); border-radius: 999px; box-shadow: 0 18px 70px rgba(0,0,0,.35); }
     .brand{ display:flex; align-items:center; gap: 12px; padding-left: 6px; min-width: 210px; }
-    .brand-badge{
-      width: 44px; height: 44px; border-radius: 14px;
-      display:grid; place-items:center;
-      font-weight: 900; letter-spacing:-.02em; color: var(--text);
-      background: linear-gradient(135deg, rgba(53,214,255,.20), rgba(138,92,255,.18));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
-    }
+    .brand-badge{ width: 44px; height: 44px; border-radius: 14px; display:grid; place-items:center; font-weight: 900; letter-spacing:-.02em; color: var(--text); background: linear-gradient(135deg, rgba(53,214,255,.20), rgba(138,92,255,.18)); border: 1px solid rgba(255,255,255,.10); box-shadow: 0 18px 50px rgba(0,0,0,.35); }
     .brand small{ display:block; color: var(--muted); font-weight: 600; font-size: 12px; letter-spacing:.08em; text-transform: uppercase; }
     .brand b{ display:block; font-size: 14px; font-weight: 800; letter-spacing:-.01em; line-height: 1.2; }
-    .nav-links{
-      display:flex; gap: 10px; flex-wrap:wrap; justify-content:center;
-      padding: 6px; border-radius: 999px;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06);
-      max-width: 100%;
-    }
-    .nav-links a{
-      text-decoration:none; color: rgba(245,247,255,.70); font-weight: 800; font-size: 13px;
-      padding: 10px 14px; border-radius: 999px; transition: .18s ease; position:relative; white-space:nowrap;
-    }
+    .nav-links{ display:flex; gap: 10px; flex-wrap:wrap; justify-content:center; padding: 6px; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); max-width: 100%; }
+    .nav-links a{ text-decoration:none; color: rgba(245,247,255,.70); font-weight: 800; font-size: 13px; padding: 10px 14px; border-radius: 999px; transition: .18s ease; position:relative; white-space:nowrap; }
     .nav-links a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
-    .nav-links a.active{
-      color: var(--text);
-      background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 16px 45px rgba(53,214,255,.12);
-    }
+    .nav-links a.active{ color: var(--text); background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16)); border: 1px solid rgba(255,255,255,.10); box-shadow: 0 16px 45px rgba(53,214,255,.12); }
     main.hero{ min-height: 100vh; display:flex; align-items:center; padding-top: 130px; padding-bottom: 70px; }
     .hero-grid{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 34px; align-items:center; }
-    .kicker{
-      color: rgba(245,247,255,.65); font-weight: 800; font-size: 12px; letter-spacing: .28em;
-      text-transform: uppercase; display:flex; gap: 12px; align-items:center; margin-bottom: 14px;
-    }
+    .kicker{ color: rgba(245,247,255,.65); font-weight: 800; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; display:flex; gap: 12px; align-items:center; margin-bottom: 14px; }
     .kicker .line{ height: 2px; width: 40px; border-radius: 999px; background: linear-gradient(90deg, var(--a1), var(--a2)); opacity:.85; }
     .role{ color: rgba(53,214,255,.88); font-weight: 900; letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
     .name{ font-size: clamp(44px, 6vw, 86px); line-height: .95; letter-spacing: -.05em; font-weight: 900; margin: 6px 0 12px; }
-    .name .last{
-      background: linear-gradient(90deg, rgba(53,214,255,.98), rgba(138,92,255,.92));
-      -webkit-background-clip:text; background-clip:text; color: transparent; display:inline-block;
-    }
+    .name .last{ background: linear-gradient(90deg, rgba(53,214,255,.98), rgba(138,92,255,.92)); -webkit-background-clip:text; background-clip:text; color: transparent; display:inline-block; }
     .lead{ color: rgba(245,247,255,.72); max-width: 720px; font-size: 15px; }
     .quote{ margin-top: 12px; color: rgba(245,247,255,.70); font-style: italic; font-size: 15px; max-width: 720px; }
     .cta-row{ margin-top: 22px; display:flex; gap: 12px; flex-wrap:wrap; align-items:center; }
-    .btn{
-      display:inline-flex; align-items:center; gap: 10px; padding: 13px 16px; border-radius: 14px;
-      text-decoration:none; font-weight: 900; font-size: 13px; letter-spacing:.02em;
-      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: var(--text);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border .18s ease;
-      box-shadow: 0 18px 70px rgba(0,0,0,.25); user-select:none;
-    }
+    .btn{ display:inline-flex; align-items:center; gap: 10px; padding: 13px 16px; border-radius: 14px; text-decoration:none; font-weight: 900; font-size: 13px; letter-spacing:.02em; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: var(--text); transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border .18s ease; box-shadow: 0 18px 70px rgba(0,0,0,.25); user-select:none; }
     .btn:hover{ transform: translateY(-3px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
-    .btn.primary{
-      background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16));
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 22px 70px rgba(53,214,255,.12);
-    }
+    .btn.primary{ background: linear-gradient(90deg, rgba(53,214,255,.18), rgba(138,92,255,.16)); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 22px 70px rgba(53,214,255,.12); }
     .btn .ic{ width: 34px; height: 34px; border-radius: 12px; display:grid; place-items:center; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); }
-    .info-panel{
-      border-radius: 26px; padding: 18px;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow); overflow:hidden; position: relative;
-    }
-    .info-panel::before{
-      content:""; position:absolute; inset:-2px;
-      background:
-        radial-gradient(700px 260px at 20% 0%, rgba(53,214,255,.22), transparent 55%),
-        radial-gradient(700px 260px at 85% 10%, rgba(138,92,255,.18), transparent 55%);
-      opacity: .65; pointer-events:none;
-    }
+    .info-panel{ border-radius: 26px; padding: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); overflow:hidden; position: relative; }
+    .info-panel::before{ content:""; position:absolute; inset:-2px; background: radial-gradient(700px 260px at 20% 0%, rgba(53,214,255,.22), transparent 55%), radial-gradient(700px 260px at 85% 10%, rgba(138,92,255,.18), transparent 55%); opacity: .65; pointer-events:none; }
     .info-panel > *{ position: relative; z-index: 1; }
     .info-title{ display:flex; align-items:center; justify-content:space-between; gap: 12px; margin-bottom: 12px; }
-    .pill{
-      font-size: 12px; font-weight: 900; padding: 10px 12px; border-radius: 999px;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10);
-      color: rgba(245,247,255,.72); white-space:nowrap;
-    }
+    .pill{ font-size: 12px; font-weight: 900; padding: 10px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); color: rgba(245,247,255,.72); white-space:nowrap; }
     .stat{ background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10); border-radius: 18px; padding: 14px; margin-bottom: 12px; }
     .stat b{ display:block; font-weight: 900; letter-spacing:-.01em; }
     .stat span{ display:block; margin-top: 4px; color: var(--muted); font-size: 13px; }
     .mini-links{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-    .mini-links a{
-      color: rgba(245,247,255,.78); text-decoration:none; font-weight: 900; font-size: 13px;
-      padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05); transition: .18s ease;
-    }
+    .mini-links a{ color: rgba(245,247,255,.78); text-decoration:none; font-weight: 900; font-size: 13px; padding: 10px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); transition: .18s ease; }
     .mini-links a:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.16); }
-    .scroll-down{
-      position:absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
-      color: rgba(245,247,255,.55); font-size: 22px; text-decoration:none; transition:.18s ease; opacity:.85;
-    }
+    .scroll-down{ position:absolute; left: 50%; bottom: 26px; transform: translateX(-50%); color: rgba(245,247,255,.55); font-size: 22px; text-decoration:none; transition:.18s ease; opacity:.85; }
     .scroll-down:hover{ color: rgba(53,214,255,.85); transform: translateX(-50%) translateY(2px); }
     section{ padding: 90px 0; }
     .section-title{ font-size: 24px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 10px; }
     .section-sub{ color: var(--muted); max-width: 980px; }
     .cards{ margin-top: 22px; display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .card{
-      grid-column: span 6; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius); padding: 18px; box-shadow: 0 20px 70px rgba(0,0,0,.22);
-      transition: .18s ease; position:relative; overflow:hidden;
-    }
+    .card{ grid-column: span 6; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 18px; box-shadow: 0 20px 70px rgba(0,0,0,.22); transition: .18s ease; position:relative; overflow:hidden; }
     .card:hover{ transform: translateY(-6px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
     .card h3{ font-size: 16px; font-weight: 900; margin-bottom: 8px; letter-spacing:-.01em; }
     .card p{ color: var(--muted); font-size: 13px; }
     .meta{ display:flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 0; color: var(--muted2); font-size: 12px; font-weight: 800; }
     .tags{ margin-top: 12px; display:flex; flex-wrap:wrap; gap: 8px; }
-    .tag{
-      font-size: 12px; font-weight: 900; padding: 8px 10px; border-radius: 999px;
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10);
-      color: rgba(245,247,255,.82); white-space: nowrap;
-    }
+    .tag{ font-size: 12px; font-weight: 900; padding: 8px 10px; border-radius: 999px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10); color: rgba(245,247,255,.82); white-space: nowrap; }
     .links{ margin-top: 12px; display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
     .links a{ text-decoration:none; font-weight: 900; font-size: 13px; color: rgba(53,214,255,.95); }
     .links span{ color: rgba(255,255,255,.25); }
-    .contact-panel{
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 26px;
-      padding: 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; text-align:center;
-    }
-    .contact-panel::before{
-      content:""; position:absolute; inset:-2px;
-      background:
-        radial-gradient(800px 260px at 20% 0%, rgba(53,214,255,.18), transparent 60%),
-        radial-gradient(800px 260px at 85% 10%, rgba(138,92,255,.16), transparent 60%);
-      opacity: .70; pointer-events:none;
-    }
+    .contact-panel{ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 26px; padding: 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; text-align:center; }
+    .contact-panel::before{ content:""; position:absolute; inset:-2px; background: radial-gradient(800px 260px at 20% 0%, rgba(53,214,255,.18), transparent 60%), radial-gradient(800px 260px at 85% 10%, rgba(138,92,255,.16), transparent 60%); opacity: .70; pointer-events:none; }
     .contact-panel > *{ position: relative; z-index: 1; }
     .contact-kicker{ color: rgba(53,214,255,.88); font-weight: 900; letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
     footer{ padding: 28px 0 40px; color: rgba(245,247,255,.45); font-size: 13px; text-align:center; }
+    .subsection-label{ color: rgba(245,247,255,.55); font-weight: 900; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin: 40px 0 4px; }
     @media (max-width: 980px){ .hero-grid{ grid-template-columns: 1fr; gap: 18px; } .info-panel{ max-width: 720px; margin: 0 auto; } }
-    @media (max-width: 760px){
-      header{ top: 10px; } .brand small{ display:none; }
-      .nav-pill{ padding: 10px 12px; border-radius: 22px; }
-      .nav-links{ width: 100%; justify-content: flex-start; overflow:auto; scrollbar-width:none; }
-      .nav-links::-webkit-scrollbar{ display:none; }
-      .card{ grid-column: span 12; } section{ padding: 76px 0; }
-    }
+    @media (max-width: 760px){ header{ top: 10px; } .brand small{ display:none; } .nav-pill{ padding: 10px 12px; border-radius: 22px; } .nav-links{ width: 100%; justify-content: flex-start; overflow:auto; scrollbar-width:none; } .nav-links::-webkit-scrollbar{ display:none; } .card{ grid-column: span 12; } section{ padding: 76px 0; } }
   </style>
 </head>
 
@@ -213,10 +101,9 @@
         </div>
         <nav class="nav-links" aria-label="Primary">
           <a href="#home" class="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -230,11 +117,7 @@
           <div class="kicker"><span class="line"></span><span>Digital Systems • Cloud • Scalable Backend</span></div>
           <div class="role">SOFTWARE ENGINEER • BACKEND • CLOUD SYSTEMS</div>
           <div class="name">Ruchita<br/><span class="last">Darur</span></div>
-          <p class="lead">
-            Software Engineer and M.S. Computer Science candidate with experience in backend development,
-            cloud-based systems, and data-driven applications. I build scalable REST APIs, work with relational
-            databases, and deploy production services using AWS and Docker.
-          </p>
+          <p class="lead">Software Engineer and M.S. Computer Science candidate with experience in backend development, cloud-based systems, and AI-integrated applications. I build scalable REST APIs, work with relational databases, and deploy production services using AWS and Docker.</p>
           <p class="quote">"Build with intention, test with care, and deploy with confidence."</p>
           <div class="cta-row">
             <a class="btn primary" href="#projects"><span class="ic"><i class="fa-solid fa-diagram-project"></i></span>Explore Projects</a>
@@ -243,15 +126,14 @@
             <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-github"></i></span>GitHub</a>
           </div>
         </div>
-
         <aside class="info-panel" aria-label="Profile summary panel">
           <div class="info-title">
             <div class="pill"><i class="fa-solid fa-sparkles"></i> Key Highlights</div>
             <div class="pill"><i class="fa-solid fa-location-dot"></i> Fairfax, VA</div>
           </div>
-          <div class="stat"><b>What I build</b><span>Production-ready backend platforms, cloud deployments, and data-driven systems.</span></div>
-          <div class="stat"><b>Core strengths</b><span>REST APIs • Databases • Distributed systems fundamentals • Debugging & performance.</span></div>
-          <div class="stat" style="margin-bottom:0;"><b>Open to roles</b><span>Backend / Full-Stack Software Engineer (Full-time priority, internship backup).</span></div>
+          <div class="stat"><b>What I build</b><span>Production-ready backend platforms, cloud deployments, and AI-integrated systems.</span></div>
+          <div class="stat"><b>Core strengths</b><span>REST APIs • Databases • AI/LLM integration • Debugging & performance.</span></div>
+          <div class="stat" style="margin-bottom:0;"><b>Open to roles</b><span>Backend / Full-Stack Software Engineer (Full-time).</span></div>
           <div class="mini-links" aria-label="Quick links">
             <a href="mailto:ruchitadarur@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
             <a href="tel:+15715876051"><i class="fa-solid fa-phone"></i> Call</a>
@@ -259,50 +141,15 @@
           </div>
         </aside>
       </div>
-      <a class="scroll-down" href="#about" aria-label="Scroll down"><i class="fa-solid fa-arrow-down"></i></a>
+      <a class="scroll-down" href="#projects" aria-label="Scroll down"><i class="fa-solid fa-arrow-down"></i></a>
     </div>
   </main>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-title">About</div>
-      <p class="section-sub">
-        Designed and developed a modern, interactive portfolio reflecting my journey as a Full-Stack Developer.
-        It showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.
-      </p>
-      <div class="cards">
-        <div class="card">
-          <h3>💥 Key Highlights</h3>
-          <p>Clean and futuristic UI with smooth animations, fully responsive design, and interactive sections for skills, projects, and achievements.</p>
-          <div class="tags"><span class="tag">Futuristic UI</span><span class="tag">Responsive</span><span class="tag">Interactive</span><span class="tag">Smooth Animations</span></div>
-        </div>
-        <div class="card">
-          <h3>🔧 Tech Stack Used</h3>
-          <p>Tailwind CSS for scalable styling, GSAP for high-performance animations, JavaScript & React for dynamic components.</p>
-          <div class="tags"><span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="container">
-      <div class="section-title">Skills</div>
-      <p class="section-sub">A quick snapshot of what I work with most:</p>
-      <div class="cards">
-        <div class="card"><h3>Languages</h3><p>Python, SQL, C++</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">C++</span></div></div>
-        <div class="card"><h3>Backend & Systems</h3><p>REST APIs, Microservices, Distributed Systems, Asynchronous Processing, System Design</p><div class="tags"><span class="tag">REST</span><span class="tag">Microservices</span><span class="tag">Distributed</span><span class="tag">Async</span><span class="tag">System Design</span></div></div>
-        <div class="card"><h3>Databases</h3><p>PostgreSQL, MySQL, Data Modeling, SQL Optimization</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Data Modeling</span><span class="tag">Optimization</span></div></div>
-        <div class="card"><h3>Cloud & DevOps</h3><p>AWS (EC2, RDS, S3), Docker, CI/CD, Linux, Jenkins</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Linux</span><span class="tag">Jenkins</span></div></div>
-      </div>
-    </div>
-  </section>
-
   <section id="projects">
     <div class="container">
-      <div class="section-title">Projects</div>
-      <p class="section-sub" style="margin-bottom: 12px;">Personal Projects</p>
-      <div class="cards" style="margin-bottom: 48px;">
+      <div class="section-title">Featured Projects</div>
+      <p class="section-sub" style="margin-bottom: 12px;">Production systems and applied AI/ML work.</p>
+      <div class="cards" style="margin-bottom: 20px;">
 
         <div class="card">
           <h3>TaskFlow — Full-Stack Task Management API</h3>
@@ -311,8 +158,8 @@
           <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
             <li>JWT auth with access + refresh token rotation</li>
             <li>Real-time notifications via WebSockets</li>
-            <li>Background email jobs with Celery + Redis</li>
-            <li>Full CI/CD pipeline with GitHub Actions</li>
+            <li>Background jobs with Celery + Redis</li>
+            <li>28 automated tests at 90%+ coverage, full CI/CD pipeline via GitHub Actions</li>
             <li>Deployed on Render + Vercel + Neon (PostgreSQL)</li>
           </ul>
           <div class="meta"><span>Feb 2026 – Present</span></div>
@@ -321,17 +168,57 @@
         </div>
 
         <div class="card">
-          <h3>Personal Portfolio – Full-Stack Developer</h3>
-          <p>Designed and developed a modern, interactive portfolio that showcases my skills, projects, achievements, and passion for building scalable, user-focused digital solutions.</p>
+          <h3>SkillLens — AI Career Coaching Platform</h3>
+          <p>Built and deployed a production RAG pipeline integrating GPT-4 with FAISS vector retrieval and semantic chunking, turning raw model output into structured, actionable career guidance.</p>
           <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
           <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
-            <li>Clean and futuristic UI with smooth animations</li>
-            <li>Fully responsive design across all devices</li>
-            <li>Interactive sections for skills, projects, and achievements</li>
-            <li>Professional contact section for seamless collaboration</li>
+            <li>GPT-4 + FAISS retrieval-augmented generation pipeline</li>
+            <li>~35% response accuracy improvement over prompt-only baseline</li>
+            <li>Dockerized, deployed on AWS with GitHub Actions CI/CD</li>
+            <li>Release cycle reduced from days to under 2 hours, zero-downtime deploys</li>
           </ul>
-          <div class="tags"><span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">UI/UX</span></div>
-          <div class="links"><a href="https://ruchitadarur20.github.io/" target="_blank" rel="noopener">Live</a></div>
+          <div class="meta"><span>Aug 2025 – Dec 2025</span></div>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">GPT-4</span><span class="tag">FAISS</span><span class="tag">LangChain</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+        </div>
+
+        <div class="card">
+          <h3>UE-CLIP — Uncertainty-Entropy Semantic Segmentation</h3>
+          <p>Research project on semantic segmentation using CLIP ViT-L/14 on ADE20K. Designed and implemented an uncertainty-entropy module for entropy-gated prompt pruning within the CLIP pipeline, improving segmentation reliability under ambiguous visual conditions.</p>
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>Achieved 51.89% mIoU on ADE20K</li>
+            <li>Ran 8 ablation experiments across Kaggle T4 and RTX 6000 Ada GPUs</li>
+            <li>Entropy-gated prompt pruning module built on top of CLIP ViT-L/14</li>
+          </ul>
+          <div class="meta"><span>Aug 2025 – Dec 2025</span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CLIP ViT-L/14</span><span class="tag">ADE20K</span><span class="tag">Semantic Segmentation</span></div>
+        </div>
+
+        <div class="card">
+          <h3>AI Mental Health Support Platform — Mobile Product Planning</h3>
+          <p>Contributing to early-stage mobile product planning for an AI-powered mental health support platform. Focused on user-facing chat experience direction, repository structure, and integration planning with an existing backend service.</p>
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Focus Areas</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>React Native / Expo mobile framework planning</li>
+            <li>Chat-screen direction and MVP scope definition</li>
+            <li>Integration planning with an existing FastAPI backend</li>
+            <li>Collaborated with a small cross-functional team on repository structure and workflow requirements</li>
+          </ul>
+          <div class="meta"><span>2026</span></div>
+          <div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">FastAPI</span><span class="tag">Product Planning</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Job Application Automation Workflow</h3>
+          <p>Engineered a multi-source data pipeline that scrapes and processes job postings via Apify actors with Gemini-powered extraction and human-in-the-loop review — turning fragmented, unstructured postings into clean, actionable records.</p>
+          <p style="margin-top:10px; font-weight:900; color: rgba(245,247,255,.82);">💥 Highlights</p>
+          <ul style="margin-top:6px; color:var(--muted); font-size:13px; padding-left:18px;">
+            <li>Processes 50+ postings per run end-to-end</li>
+            <li>~70% reduction in per-task processing time vs. manual review</li>
+            <li>Built and released independently, from architecture through production use</li>
+          </ul>
+          <div class="meta"><span>May 2026 – Present</span></div>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Apify</span><span class="tag">Gemini API</span><span class="tag">Python</span></div>
         </div>
 
         <div class="card">
@@ -342,19 +229,13 @@
           <div class="links"><a href="https://kanban-to-do-list-two.vercel.app/" target="_blank" rel="noopener">Live</a><span>•</span><a href="https://github.com/ruchitadarur20/KanbanToDoList" target="_blank" rel="noopener">GitHub</a></div>
         </div>
 
-        <!-- FLAG: Unverified, never appeared in any resume this conversation. Confirm real + confirm ~60% figure before keeping live. -->
-        <div class="card">
-          <h3>Academic Data Analytics System</h3>
-          <p>Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards improving reporting efficiency by ~60%, focusing on performance, integrity, and decision-ready outputs.</p>
-          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
-          <div class="tags"><span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span></div>
-        </div>
       </div>
 
-      <p class="section-sub" style="margin-bottom: 12px;">Academic Projects</p>
+      <div class="subsection-label">Academic / Early Projects</div>
+      <p class="section-sub" style="margin-bottom: 12px;">Earlier coursework and independent projects from 2021–2025.</p>
       <div class="cards">
 
-        <!-- FLAG: Possibly the same project as "Student Survey Form" below, described two different ways with different stacks. Confirm if one project or two. -->
+        <!-- FLAG: Possibly same project as "Student Survey Form" below — different stack, identical dates. Confirm before final publish. -->
         <div class="card">
           <h3>Scalable Cloud-Based Student Feedback System</h3>
           <p>Built a web-based feedback console to replace a manual process. Developed Flask backend services and REST APIs to process and store application data. Deployed using Docker on AWS EC2 and improved reliability through iterative fixes.</p>
@@ -367,6 +248,14 @@
           <p>Containerized web application deployed on Google Kubernetes Engine (GKE) with an automated CI/CD pipeline using Jenkins. Includes Docker containerization, Kubernetes orchestration, and automated deployments.</p>
           <div class="meta"><span>Jan 2025 – May 2025</span></div>
           <div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GCP</span><span class="tag">Java</span></div>
+        </div>
+
+        <!-- FLAG: Unverified, never appeared in any resume. Confirm real + confirm ~60% figure before final publish. -->
+        <div class="card">
+          <h3>Academic Data Analytics System</h3>
+          <p>Designed an analytics platform to model academic performance trends. Built SQL data pipelines and dashboards improving reporting efficiency by ~60%.</p>
+          <div class="meta"><span>George Mason University</span><span>•</span><span>Aug 2024 – Dec 2024</span></div>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Data Pipelines</span><span class="tag">Analytics</span><span class="tag">Dashboards</span></div>
         </div>
 
         <div class="card">
@@ -408,25 +297,31 @@
       <div class="cards">
         <div class="card">
           <h3>GenAI Systems Benchmarking & Technology Evaluation</h3>
-          <p>
-            Conducted research-driven evaluation of frontier AI systems (GPT, Gemini, Grok) for real-world deployment readiness.
-            Designed benchmarking methods measuring latency, TTFT, reasoning consistency, and reliability under stress conditions,
-            and translated experimental insights into technology recommendations.
-          </p>
+          <p>Conducted research-driven evaluation of frontier AI systems (GPT, Gemini, Grok) for real-world deployment readiness. Designed benchmarking methods measuring latency, TTFT, reasoning consistency, and reliability under stress conditions, and translated experimental insights into technology recommendations.</p>
           <div class="meta"><span>George Mason University</span><span>•</span><span>Jul 2025 – Dec 2025</span></div>
           <div class="tags"><span class="tag">Benchmarking</span><span class="tag">Metrics</span><span class="tag">Reliability</span><span class="tag">Evaluation</span></div>
         </div>
-
         <div class="card">
           <h3>Software Engineer Intern – Artallur Technologies</h3>
-          <p>
-            Developed backend services and REST APIs for internal and client-facing applications. Designed and optimized PostgreSQL
-            schemas and queries, deployed and tested on AWS infrastructure, and contributed to debugging and performance improvements
-            using Git-based workflows and clear technical communication.
-          </p>
+          <p>Developed backend services and REST APIs for internal and client-facing applications. Designed and optimized PostgreSQL schemas and queries, deployed and tested on AWS infrastructure, and contributed to debugging and performance improvements using Git-based workflows and clear technical communication.</p>
           <div class="meta"><span>May 2022 – Nov 2022</span></div>
           <div class="tags"><span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">Backend</span><span class="tag">Debugging</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">Skills</div>
+      <p class="section-sub">A quick snapshot of what I work with most:</p>
+      <div class="cards">
+        <div class="card"><h3>Languages</h3><p>Python, TypeScript, JavaScript, SQL, C++</p><div class="tags"><span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">C++</span></div></div>
+        <div class="card"><h3>Frontend</h3><p>React, Next.js, TypeScript, Tailwind CSS</p><div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span></div></div>
+        <div class="card"><h3>Backend & Systems</h3><p>FastAPI, Flask, Node.js, Express.js, REST APIs, WebSockets, JWT Auth, Distributed Systems</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">REST APIs</span><span class="tag">WebSockets</span><span class="tag">JWT Auth</span></div></div>
+        <div class="card"><h3>AI & ML</h3><p>PyTorch, CLIP, LangChain, RAG Pipelines, FAISS, Prompt Engineering</p><div class="tags"><span class="tag">PyTorch</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">FAISS</span></div></div>
+        <div class="card"><h3>Databases</h3><p>PostgreSQL, MySQL, MongoDB, Redis, Data Modeling, Query Optimization</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span></div></div>
+        <div class="card"><h3>Cloud & DevOps</h3><p>AWS (EC2, S3), GCP, Docker, Kubernetes, Jenkins, GitHub Actions (CI/CD)</p><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span></div></div>
       </div>
     </div>
   </section>
@@ -436,10 +331,7 @@
       <div class="contact-panel">
         <div class="contact-kicker">What's Next?</div>
         <div class="section-title" style="margin-bottom:8px;">Get In Touch</div>
-        <p class="section-sub" style="margin: 0 auto 16px; max-width: 860px;">
-          I'm currently looking for new opportunities. Whether you have a question or want to collaborate,
-          I'll try my best to get back to you quickly.
-        </p>
+        <p class="section-sub" style="margin: 0 auto 16px; max-width: 860px;">I'm currently looking for new opportunities. Whether you have a question or want to collaborate, I'll try my best to get back to you quickly.</p>
         <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
           <a class="btn primary" href="mailto:ruchitadarur@gmail.com"><span class="ic"><i class="fa-solid fa-paper-plane"></i></span>Say Hello</a>
           <a class="btn" href="https://github.com/ruchitadarur20" target="_blank" rel="noopener"><span class="ic"><i class="fa-brands fa-github"></i></span>GitHub</a>
